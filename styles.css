@@ -148,11 +148,6 @@ body:not(.rounded-borders) *:not(img) {
   border-radius: 0 !important;
 }
 
-/* Rounded borders theme */
-body.rounded-borders *:not(img) {
-  border-radius: 12px; /* Adjust as needed */
-}
-
 /* Section Search Bars */
 .section-search {
   margin-bottom: 2rem;

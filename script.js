@@ -1,4 +1,12 @@
-// Theme switching functionality
+// Save original border-radius values for all elements except <img>
+const originalBorderRadius = new WeakMap();
+
+document.querySelectorAll("*:not(img)").forEach((el) => {
+  const style = getComputedStyle(el);
+  originalBorderRadius.set(el, style.borderRadius);
+});
+
+// Theme buttons logic
 const themeButtons = document.querySelectorAll(".theme-btn");
 const body = document.body;
 
@@ -17,13 +25,50 @@ themeButtons.forEach((btn) => {
 
     // Save theme preference
     localStorage.setItem("portfolio-theme", theme);
+
+    // Special case: toggle block vs round borders
+    if (theme === "br") {
+      const isRounded = body.classList.toggle("rounded-borders");
+      localStorage.setItem("portfolio-rounded", isRounded);
+
+      document.querySelectorAll("*:not(img)").forEach((el) => {
+        if (isRounded) {
+          // Restore original radius
+          el.style.borderRadius = originalBorderRadius.get(el);
+        } else {
+          // Remove radius
+          el.style.borderRadius = "0";
+        }
+      });
+    } else {
+      // If any other theme, remove border customizations
+      body.classList.remove("rounded-borders");
+      localStorage.removeItem("portfolio-rounded");
+
+      // Restore original radius just in case
+      document.querySelectorAll("*:not(img)").forEach((el) => {
+        el.style.borderRadius = originalBorderRadius.get(el);
+      });
+    }
   });
 });
 
-// Load saved theme
+// Load saved theme on page load
 const savedTheme = localStorage.getItem("portfolio-theme") || "vintage";
+const isRoundedSaved = localStorage.getItem("portfolio-rounded") === "true";
 body.setAttribute("data-theme", savedTheme);
-document.querySelector(`[data-theme="${savedTheme}"]`).classList.add("active");
+
+const activeButton = document.querySelector(`[data-theme="${savedTheme}"]`);
+if (activeButton) activeButton.classList.add("active");
+
+// Reapply border settings
+if (savedTheme === "br") {
+  document.querySelectorAll("*:not(img)").forEach((el) => {
+    el.style.borderRadius = isRoundedSaved ? originalBorderRadius.get(el) : "0";
+  });
+
+  if (isRoundedSaved) body.classList.add("rounded-borders");
+}
 
 // Search functionality for Projects
 const projectsSearch = document.getElementById("projectsSearch");
@@ -574,9 +619,9 @@ document.querySelectorAll(".skill-card").forEach((card) => {
   });
 });
 
-// Reset all border-radius styles to zero skip images
-document.querySelectorAll("*").forEach((el) => {
-  if (el.tagName.toLowerCase() !== "img") {
-    el.style.borderRadius = "0";
-  }
-});
+// // Reset all border-radius styles to zero skip images
+// document.querySelectorAll("*").forEach((el) => {
+//   if (el.tagName.toLowerCase() !== "img") {
+//     el.style.borderRadius = "0";
+//   }
+// });
