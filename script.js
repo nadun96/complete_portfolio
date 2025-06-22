@@ -1,6 +1,6 @@
-// Step 1: Store original border-radius of all non-image elements
 const originalBorderRadius = new WeakMap();
 
+// Save original border-radius for all non-image elements
 document.querySelectorAll("*:not(img)").forEach((el) => {
   const style = getComputedStyle(el);
   originalBorderRadius.set(el, style.borderRadius);
@@ -9,48 +9,18 @@ document.querySelectorAll("*:not(img)").forEach((el) => {
 const themeButtons = document.querySelectorAll(".theme-btn");
 const body = document.body;
 
-themeButtons.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const theme = btn.dataset.theme;
-
-    // Remove active class from all buttons
-    themeButtons.forEach((b) => b.classList.remove("active"));
-    btn.classList.add("active");
-
-    // Set theme attribute
-    body.setAttribute("data-theme", theme);
-    localStorage.setItem("portfolio-theme", theme);
-
-    if (theme === "sr") {
-      const isRounded = body.classList.toggle("rounded-borders");
-      localStorage.setItem("portfolio-rounded", isRounded);
-
-      document.querySelectorAll("*:not(img)").forEach((el) => {
-        el.style.borderRadius = isRounded ? originalBorderRadius.get(el) : "0";
-      });
-    } else {
-      // Reset other themes
-      body.classList.remove("rounded-borders");
-      localStorage.removeItem("portfolio-rounded");
-
-      // Restore original border radius for safety
-      document.querySelectorAll("*:not(img)").forEach((el) => {
-        el.style.borderRadius = originalBorderRadius.get(el);
-      });
-    }
-  });
-});
-
-// Step 3: Load saved theme on page load
+// Load saved theme and rounded state
 const savedTheme = localStorage.getItem("portfolio-theme") || "vintage";
 const isRoundedSaved = localStorage.getItem("portfolio-rounded") === "true";
+
+// Set theme on body
 body.setAttribute("data-theme", savedTheme);
 
-// Activate saved theme button
+// Set active button
 const activeBtn = document.querySelector(`[data-theme="${savedTheme}"]`);
 if (activeBtn) activeBtn.classList.add("active");
 
-// Reapply border state if 'sr' theme
+// Apply saved border radius state for 'sr' theme
 if (savedTheme === "sr") {
   document.querySelectorAll("*:not(img)").forEach((el) => {
     el.style.borderRadius = isRoundedSaved ? originalBorderRadius.get(el) : "0";
@@ -59,7 +29,56 @@ if (savedTheme === "sr") {
   if (isRoundedSaved) {
     body.classList.add("rounded-borders");
   }
+
+  const srBtn = document.querySelector(".theme-sr");
+  if (srBtn) {
+    srBtn.classList.toggle("round-mode", isRoundedSaved);
+    srBtn.classList.toggle("square-mode", !isRoundedSaved);
+  }
 }
+
+// Theme buttons logic
+themeButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const theme = btn.dataset.theme;
+
+    // Remove active class from all buttons
+    themeButtons.forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    // Set theme
+    body.setAttribute("data-theme", theme);
+    localStorage.setItem("portfolio-theme", theme);
+
+    if (theme === "sr") {
+      const isRounded = body.classList.toggle("rounded-borders");
+      localStorage.setItem("portfolio-rounded", isRounded);
+
+      // Toggle border-radius
+      document.querySelectorAll("*:not(img)").forEach((el) => {
+        el.style.borderRadius = isRounded ? originalBorderRadius.get(el) : "0";
+      });
+
+      // Toggle button styles
+      btn.classList.toggle("round-mode", isRounded);
+      btn.classList.toggle("square-mode", !isRounded);
+    } else {
+      // Reset border radius for all other themes
+      body.classList.remove("rounded-borders");
+      localStorage.removeItem("portfolio-rounded");
+
+      document.querySelectorAll("*:not(img)").forEach((el) => {
+        el.style.borderRadius = originalBorderRadius.get(el);
+      });
+
+      // Reset 'sr' button state
+      const srBtn = document.querySelector(".theme-sr");
+      if (srBtn) {
+        srBtn.classList.remove("round-mode", "square-mode");
+      }
+    }
+  });
+});
 
 // Search functionality for Projects
 const projectsSearch = document.getElementById("projectsSearch");

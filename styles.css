@@ -118,7 +118,7 @@ body {
 .theme-btn.active {
   border-color: rgba(255, 255, 255, 0.8);
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4);
-  transform: scale(1.1);
+  transform: scale(0.9);
 }
 
 .theme-btn:hover {
@@ -142,14 +142,14 @@ body {
   background: radial-gradient(circle, #000000 0%);
 }
 
-/* Default "round" appearance */
 .theme-sr.round-mode {
-  background: radial-gradient(circle, #0c0000cc 0%, #ffffff33 100%);
+  background: radial-gradient(circle, #0c0000 100%, #ffffff 50%);
+  border-radius: 0px !important;
 }
 
-/* Square mode (when borders are 0) */
 .theme-sr.square-mode {
-  background: linear-gradient(135deg, #000 0%, #333 100%);
+  background: radial-gradient(circle, #0c0000 100%, #ffffff 50%);
+  border-radius: 50% !important;
 }
 
 /* Section Search Bars */
