@@ -1,4 +1,11 @@
-// Theme switching functionality
+// Step 1: Store original border-radius of all non-image elements
+const originalBorderRadius = new WeakMap();
+
+document.querySelectorAll("*:not(img)").forEach((el) => {
+  const style = getComputedStyle(el);
+  originalBorderRadius.set(el, style.borderRadius);
+});
+
 const themeButtons = document.querySelectorAll(".theme-btn");
 const body = document.body;
 
@@ -8,22 +15,51 @@ themeButtons.forEach((btn) => {
 
     // Remove active class from all buttons
     themeButtons.forEach((b) => b.classList.remove("active"));
-
-    // Add active class to clicked button
     btn.classList.add("active");
 
-    // Set theme on body
+    // Set theme attribute
     body.setAttribute("data-theme", theme);
-
-    // Save theme preference
     localStorage.setItem("portfolio-theme", theme);
+
+    if (theme === "sr") {
+      const isRounded = body.classList.toggle("rounded-borders");
+      localStorage.setItem("portfolio-rounded", isRounded);
+
+      document.querySelectorAll("*:not(img)").forEach((el) => {
+        el.style.borderRadius = isRounded ? originalBorderRadius.get(el) : "0";
+      });
+    } else {
+      // Reset other themes
+      body.classList.remove("rounded-borders");
+      localStorage.removeItem("portfolio-rounded");
+
+      // Restore original border radius for safety
+      document.querySelectorAll("*:not(img)").forEach((el) => {
+        el.style.borderRadius = originalBorderRadius.get(el);
+      });
+    }
   });
 });
 
-// Load saved theme
+// Step 3: Load saved theme on page load
 const savedTheme = localStorage.getItem("portfolio-theme") || "vintage";
+const isRoundedSaved = localStorage.getItem("portfolio-rounded") === "true";
 body.setAttribute("data-theme", savedTheme);
-document.querySelector(`[data-theme="${savedTheme}"]`).classList.add("active");
+
+// Activate saved theme button
+const activeBtn = document.querySelector(`[data-theme="${savedTheme}"]`);
+if (activeBtn) activeBtn.classList.add("active");
+
+// Reapply border state if 'sr' theme
+if (savedTheme === "sr") {
+  document.querySelectorAll("*:not(img)").forEach((el) => {
+    el.style.borderRadius = isRoundedSaved ? originalBorderRadius.get(el) : "0";
+  });
+
+  if (isRoundedSaved) {
+    body.classList.add("rounded-borders");
+  }
+}
 
 // Search functionality for Projects
 const projectsSearch = document.getElementById("projectsSearch");
