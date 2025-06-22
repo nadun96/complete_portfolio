@@ -9,16 +9,15 @@
             href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap"
             rel="stylesheet">
         <link rel="stylesheet" href="styles.css">
-
     </head>
 
-    <body loading="lazy" data-theme="vintage">
-        <!-- Theme Switcher - Updated to be transparent without text -->
+    <body data-theme="vintage">
+        <!-- Theme Switcher - SR as style modifier -->
         <div class="theme-switcher">
             <button class="theme-btn theme-vintage active" data-theme="vintage" title="Vintage Theme"></button>
             <button class="theme-btn theme-blue" data-theme="blue" title="Blue Theme"></button>
             <button class="theme-btn theme-bw" data-theme="bw" title="Black & White Theme"></button>
-            <button class="theme-btn theme-block" data-theme="br" title="Blocks and Round"></button>
+            <button class="theme-btn theme-sr square-mode" data-theme="sr" title="Toggle Square/Round Edges"></button>
         </div>
 
         <!-- Navigation -->
@@ -55,7 +54,7 @@
                         <p class="home-description">
                             Crafting digital experiences with passion and precision.
                             I specialize in creating elegant solutions to complex problems
-                            using modern technologies.
+                            using modern web technologies.
                         </p>
                         <div class="home-buttons">
                             <a href="#projects" class="btn btn-primary">View My Work</a>
@@ -64,8 +63,7 @@
                     </div>
                     <div class="home-image">
                         <div class="profile-frame">
-                            <img src="profile image.jpg" alt="Nadun Udaraka" class="profile-img">
-                            <!-- <img src="/placeholder.svg?height=400&width=400" alt="Nadun Udaraka" class="profile-img"> -->
+                            <img src="/profile image.jpg" alt="Nadun Udaraka" class="profile-img">
                         </div>
                     </div>
                 </div>
@@ -184,98 +182,7 @@
                 <div class="search-results-info" id="projectsResults"></div>
 
                 <div class="projects-grid" id="projectsGrid">
-                    <div class="project-card" data-aos="fade-up"
-                        data-search-terms="ecommerce react nodejs mongodb stripe frontend backend database payment">
-                        <div class="project-image">
-                            <img src="/placeholder.svg?height=250&width=400" alt="E-commerce Platform">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link">Live Demo</a>
-                                    <a href="#" class="project-link">GitHub</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">E-commerce Platform</h3>
-                            <p class="project-description">
-                                A full-featured e-commerce platform with user authentication,
-                                payment processing, and admin dashboard.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">MongoDB</span>
-                                <span class="tech-tag">Stripe</span>
-                            </div>
-                            <div class="project-skills">
-                                <span class="skill-tag">Frontend</span>
-                                <span class="skill-tag">Backend</span>
-                                <span class="skill-tag">Database</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-aos="fade-up" data-aos-delay="100"
-                        data-search-terms="task management vue express socketio postgresql frontend realtime collaboration">
-                        <div class="project-image">
-                            <img src="/placeholder.svg?height=250&width=400" alt="Task Management App">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link">Live Demo</a>
-                                    <a href="#" class="project-link">GitHub</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Task Management App</h3>
-                            <p class="project-description">
-                                A collaborative task management application with real-time updates,
-                                drag-and-drop functionality, and team collaboration features.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Vue.js</span>
-                                <span class="tech-tag">Express</span>
-                                <span class="tech-tag">Socket.io</span>
-                                <span class="tech-tag">PostgreSQL</span>
-                            </div>
-                            <div class="project-skills">
-                                <span class="skill-tag">Frontend</span>
-                                <span class="skill-tag">Real-time</span>
-                                <span class="skill-tag">UI/UX</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-aos="fade-up" data-aos-delay="200"
-                        data-search-terms="weather dashboard javascript chartjs api responsive data visualization">
-                        <div class="project-image">
-                            <img src="/placeholder.svg?height=250&width=400" alt="Weather Dashboard">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link">Live Demo</a>
-                                    <a href="#" class="project-link">GitHub</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Weather Dashboard</h3>
-                            <p class="project-description">
-                                A responsive weather dashboard with location-based forecasts,
-                                interactive maps, and historical weather data visualization.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">Chart.js</span>
-                                <span class="tech-tag">API Integration</span>
-                                <span class="tech-tag">CSS3</span>
-                            </div>
-                            <div class="project-skills">
-                                <span class="skill-tag">Data Viz</span>
-                                <span class="skill-tag">APIs</span>
-                                <span class="skill-tag">Responsive</span>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Projects will be loaded dynamically -->
                 </div>
             </div>
         </section>
@@ -297,137 +204,7 @@
 
                 <div class="skills-scroll-container">
                     <div class="skills-track" id="skillsTrack">
-                        <!-- Frontend Skills -->
-                        <div class="skill-card" data-aos="fade-up"
-                            data-search-terms="html5 frontend markup semantic web standards">
-                            <div class="skill-icon">🎨</div>
-                            <h3 class="skill-title">HTML5</h3>
-                            <p class="skill-description">Semantic markup and modern web standards</p>
-                            <div class="skill-level">Expert</div>
-                        </div>
-
-                        <div class="skill-card" data-aos="fade-up"
-                            data-search-terms="css3 styling animations responsive design frontend">
-                            <div class="skill-icon">💅</div>
-                            <h3 class="skill-title">CSS3</h3>
-                            <p class="skill-description">Advanced styling, animations, and responsive design</p>
-                            <div class="skill-level">Expert</div>
-                        </div>
-
-                        <div class="skill-card" data-aos="fade-up"
-                            data-search-terms="javascript es6 dom manipulation frontend programming">
-                            <div class="skill-icon">⚡</div>
-                            <h3 class="skill-title">JavaScript</h3>
-                            <p class="skill-description">ES6+, DOM manipulation, and modern JS features</p>
-                            <div class="skill-level">Advanced</div>
-                        </div>
-
-                        <div class="skill-card" data-aos="fade-up"
-                            data-search-terms="react component hooks frontend ui library">
-                            <div class="skill-icon">⚛️</div>
-                            <h3 class="skill-title">React</h3>
-                            <p class="skill-description">Component-based UI development and hooks</p>
-                            <div class="skill-level">Advanced</div>
-                        </div>
-
-                        <div class="skill-card" data-aos="fade-up"
-                            data-search-terms="vue vuejs progressive framework frontend ui">
-                            <div class="skill-icon">🖖</div>
-                            <h3 class="skill-title">Vue.js</h3>
-                            <p class="skill-description">Progressive framework for building UIs</p>
-                            <div class="skill-level">Intermediate</div>
-                        </div>
-
-                        <!-- Backend Skills -->
-                        <div class="skill-card" data-aos="fade-up"
-                            data-search-terms="nodejs backend javascript server runtime">
-                            <div class="skill-icon">🟢</div>
-                            <h3 class="skill-title">Node.js</h3>
-                            <p class="skill-description">Server-side JavaScript runtime environment</p>
-                            <div class="skill-level">Advanced</div>
-                        </div>
-
-                        <div class="skill-card" data-aos="fade-up"
-                            data-search-terms="python backend programming data processing">
-                            <div class="skill-icon">🐍</div>
-                            <h3 class="skill-title">Python</h3>
-                            <p class="skill-description">Backend development and data processing</p>
-                            <div class="skill-level">Intermediate</div>
-                        </div>
-
-                        <div class="skill-card" data-aos="fade-up"
-                            data-search-terms="express expressjs backend framework nodejs web">
-                            <div class="skill-icon">🚀</div>
-                            <h3 class="skill-title">Express.js</h3>
-                            <p class="skill-description">Fast, minimalist web framework for Node.js</p>
-                            <div class="skill-level">Advanced</div>
-                        </div>
-
-                        <!-- Database Skills -->
-                        <div class="skill-card" data-aos="fade-up"
-                            data-search-terms="mongodb nosql database document modern">
-                            <div class="skill-icon">🍃</div>
-                            <h3 class="skill-title">MongoDB</h3>
-                            <p class="skill-description">NoSQL database for modern applications</p>
-                            <div class="skill-level">Advanced</div>
-                        </div>
-
-                        <div class="skill-card" data-aos="fade-up"
-                            data-search-terms="postgresql sql database relational advanced">
-                            <div class="skill-icon">🐘</div>
-                            <h3 class="skill-title">PostgreSQL</h3>
-                            <p class="skill-description">Advanced relational database system</p>
-                            <div class="skill-level">Intermediate</div>
-                        </div>
-
-                        <!-- Tools & Technologies -->
-                        <div class="skill-card" data-aos="fade-up"
-                            data-search-terms="git version control collaborative development tools">
-                            <div class="skill-icon">🌿</div>
-                            <h3 class="skill-title">Git</h3>
-                            <p class="skill-description">Version control and collaborative development</p>
-                            <div class="skill-level">Expert</div>
-                        </div>
-
-                        <div class="skill-card" data-aos="fade-up"
-                            data-search-terms="docker containerization deployment devops tools">
-                            <div class="skill-icon">🐳</div>
-                            <h3 class="skill-title">Docker</h3>
-                            <p class="skill-description">Containerization and deployment</p>
-                            <div class="skill-level">Intermediate</div>
-                        </div>
-
-                        <div class="skill-card" data-aos="fade-up"
-                            data-search-terms="aws cloud computing infrastructure amazon web services">
-                            <div class="skill-icon">☁️</div>
-                            <h3 class="skill-title">AWS</h3>
-                            <p class="skill-description">Cloud computing and infrastructure</p>
-                            <div class="skill-level">Intermediate</div>
-                        </div>
-
-                        <div class="skill-card" data-aos="fade-up"
-                            data-search-terms="rest api restful web services backend">
-                            <div class="skill-icon">🔧</div>
-                            <h3 class="skill-title">REST APIs</h3>
-                            <p class="skill-description">RESTful web services and API design</p>
-                            <div class="skill-level">Advanced</div>
-                        </div>
-
-                        <div class="skill-card" data-aos="fade-up"
-                            data-search-terms="responsive design mobile first cross device frontend">
-                            <div class="skill-icon">📱</div>
-                            <h3 class="skill-title">Responsive Design</h3>
-                            <p class="skill-description">Mobile-first and cross-device compatibility</p>
-                            <div class="skill-level">Expert</div>
-                        </div>
-
-                        <div class="skill-card" data-aos="fade-up"
-                            data-search-terms="typescript typed javascript development programming">
-                            <div class="skill-icon">🎯</div>
-                            <h3 class="skill-title">TypeScript</h3>
-                            <p class="skill-description">Typed JavaScript for better development</p>
-                            <div class="skill-level">Advanced</div>
-                        </div>
+                        <!-- Skills will be loaded dynamically -->
                     </div>
                 </div>
             </div>
@@ -574,233 +351,7 @@
             <div class="container">
                 <h2 class="section-title">Professional Certifications</h2>
                 <div class="certifications-grid">
-                    <!-- Microsoft Azure Certification -->
-                    <div class="certification-card" data-aos="fade-up">
-                        <div class="cert-status verified">Verified</div>
-                        <div class="cert-header">
-                            <div class="cert-logo">🔷</div>
-                            <div class="cert-info">
-                                <h3>Azure Developer Associate</h3>
-                                <div class="cert-issuer">Microsoft</div>
-                            </div>
-                        </div>
-                        <div class="cert-details">
-                            <p class="cert-description">
-                                Demonstrates expertise in developing cloud solutions on Microsoft Azure,
-                                including compute, storage, security, and monitoring services.
-                            </p>
-                            <div class="cert-meta">
-                                <div class="cert-meta-item">
-                                    <span class="cert-meta-label">Issued</span>
-                                    <span class="cert-meta-value">March 2023</span>
-                                </div>
-                                <div class="cert-meta-item">
-                                    <span class="cert-meta-label">Expires</span>
-                                    <span class="cert-meta-value">March 2025</span>
-                                </div>
-                            </div>
-                            <div class="cert-skills">
-                                <span class="cert-skill-tag">Azure</span>
-                                <span class="cert-skill-tag">Cloud Computing</span>
-                                <span class="cert-skill-tag">DevOps</span>
-                                <span class="cert-skill-tag">API Development</span>
-                            </div>
-                        </div>
-                        <div class="cert-actions">
-                            <a href="#" class="cert-btn cert-btn-primary">View Certificate</a>
-                            <a href="#" class="cert-btn cert-btn-secondary">Verify</a>
-                        </div>
-                    </div>
-
-                    <!-- AWS Certification -->
-                    <div class="certification-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="cert-status verified">Verified</div>
-                        <div class="cert-header">
-                            <div class="cert-logo">☁️</div>
-                            <div class="cert-info">
-                                <h3>AWS Solutions Architect</h3>
-                                <div class="cert-issuer">Amazon Web Services</div>
-                            </div>
-                        </div>
-                        <div class="cert-details">
-                            <p class="cert-description">
-                                Validates expertise in designing distributed systems and applications
-                                on the AWS platform with focus on scalability and fault tolerance.
-                            </p>
-                            <div class="cert-meta">
-                                <div class="cert-meta-item">
-                                    <span class="cert-meta-label">Issued</span>
-                                    <span class="cert-meta-value">January 2023</span>
-                                </div>
-                                <div class="cert-meta-item">
-                                    <span class="cert-meta-label">Expires</span>
-                                    <span class="cert-meta-value">January 2026</span>
-                                </div>
-                            </div>
-                            <div class="cert-skills">
-                                <span class="cert-skill-tag">AWS</span>
-                                <span class="cert-skill-tag">Architecture</span>
-                                <span class="cert-skill-tag">Scalability</span>
-                                <span class="cert-skill-tag">Security</span>
-                            </div>
-                        </div>
-                        <div class="cert-actions">
-                            <a href="#" class="cert-btn cert-btn-primary">View Certificate</a>
-                            <a href="#" class="cert-btn cert-btn-secondary">Verify</a>
-                        </div>
-                    </div>
-
-                    <!-- Google Cloud Certification -->
-                    <div class="certification-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="cert-status verified">Verified</div>
-                        <div class="cert-header">
-                            <div class="cert-logo">🌐</div>
-                            <div class="cert-info">
-                                <h3>Professional Cloud Developer</h3>
-                                <div class="cert-issuer">Google Cloud</div>
-                            </div>
-                        </div>
-                        <div class="cert-details">
-                            <p class="cert-description">
-                                Demonstrates ability to build scalable and highly available applications
-                                using Google Cloud technologies and best practices.
-                            </p>
-                            <div class="cert-meta">
-                                <div class="cert-meta-item">
-                                    <span class="cert-meta-label">Issued</span>
-                                    <span class="cert-meta-value">November 2022</span>
-                                </div>
-                                <div class="cert-meta-item">
-                                    <span class="cert-meta-label">Expires</span>
-                                    <span class="cert-meta-value">November 2024</span>
-                                </div>
-                            </div>
-                            <div class="cert-skills">
-                                <span class="cert-skill-tag">Google Cloud</span>
-                                <span class="cert-skill-tag">Kubernetes</span>
-                                <span class="cert-skill-tag">Microservices</span>
-                                <span class="cert-skill-tag">CI/CD</span>
-                            </div>
-                        </div>
-                        <div class="cert-actions">
-                            <a href="#" class="cert-btn cert-btn-primary">View Certificate</a>
-                            <a href="#" class="cert-btn cert-btn-secondary">Verify</a>
-                        </div>
-                    </div>
-
-                    <!-- Coursera Specialization -->
-                    <div class="certification-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="cert-status verified">Verified</div>
-                        <div class="cert-header">
-                            <div class="cert-logo">📚</div>
-                            <div class="cert-info">
-                                <h3>Full Stack Web Development</h3>
-                                <div class="cert-issuer">Coursera - Meta</div>
-                            </div>
-                        </div>
-                        <div class="cert-details">
-                            <p class="cert-description">
-                                Comprehensive specialization covering front-end and back-end development,
-                                including React, Node.js, databases, and version control.
-                            </p>
-                            <div class="cert-meta">
-                                <div class="cert-meta-item">
-                                    <span class="cert-meta-label">Completed</span>
-                                    <span class="cert-meta-value">September 2022</span>
-                                </div>
-                                <div class="cert-meta-item">
-                                    <span class="cert-meta-label">Duration</span>
-                                    <span class="cert-meta-value">9 Months</span>
-                                </div>
-                            </div>
-                            <div class="cert-skills">
-                                <span class="cert-skill-tag">React</span>
-                                <span class="cert-skill-tag">Node.js</span>
-                                <span class="cert-skill-tag">MongoDB</span>
-                                <span class="cert-skill-tag">Git</span>
-                            </div>
-                        </div>
-                        <div class="cert-actions">
-                            <a href="#" class="cert-btn cert-btn-primary">View Certificate</a>
-                            <a href="#" class="cert-btn cert-btn-secondary">Coursera Profile</a>
-                        </div>
-                    </div>
-
-                    <!-- Docker Certification -->
-                    <div class="certification-card" data-aos="fade-up" data-aos-delay="400">
-                        <div class="cert-status verified">Verified</div>
-                        <div class="cert-header">
-                            <div class="cert-logo">🐳</div>
-                            <div class="cert-info">
-                                <h3>Docker Certified Associate</h3>
-                                <div class="cert-issuer">Docker Inc.</div>
-                            </div>
-                        </div>
-                        <div class="cert-details">
-                            <p class="cert-description">
-                                Validates skills in containerization, Docker fundamentals,
-                                image creation, orchestration, and security best practices.
-                            </p>
-                            <div class="cert-meta">
-                                <div class="cert-meta-item">
-                                    <span class="cert-meta-label">Issued</span>
-                                    <span class="cert-meta-value">August 2022</span>
-                                </div>
-                                <div class="cert-meta-item">
-                                    <span class="cert-meta-label">Expires</span>
-                                    <span class="cert-meta-value">August 2024</span>
-                                </div>
-                            </div>
-                            <div class="cert-skills">
-                                <span class="cert-skill-tag">Docker</span>
-                                <span class="cert-skill-tag">Containerization</span>
-                                <span class="cert-skill-tag">DevOps</span>
-                                <span class="cert-skill-tag">Orchestration</span>
-                            </div>
-                        </div>
-                        <div class="cert-actions">
-                            <a href="#" class="cert-btn cert-btn-primary">View Certificate</a>
-                            <a href="#" class="cert-btn cert-btn-secondary">Verify</a>
-                        </div>
-                    </div>
-
-                    <!-- MongoDB Certification -->
-                    <div class="certification-card" data-aos="fade-up" data-aos-delay="500">
-                        <div class="cert-status in-progress">In Progress</div>
-                        <div class="cert-header">
-                            <div class="cert-logo">🍃</div>
-                            <div class="cert-info">
-                                <h3>MongoDB Developer Path</h3>
-                                <div class="cert-issuer">MongoDB University</div>
-                            </div>
-                        </div>
-                        <div class="cert-details">
-                            <p class="cert-description">
-                                Advanced certification path covering MongoDB development,
-                                data modeling, aggregation framework, and performance optimization.
-                            </p>
-                            <div class="cert-meta">
-                                <div class="cert-meta-item">
-                                    <span class="cert-meta-label">Started</span>
-                                    <span class="cert-meta-value">December 2023</span>
-                                </div>
-                                <div class="cert-meta-item">
-                                    <span class="cert-meta-label">Progress</span>
-                                    <span class="cert-meta-value">75% Complete</span>
-                                </div>
-                            </div>
-                            <div class="cert-skills">
-                                <span class="cert-skill-tag">MongoDB</span>
-                                <span class="cert-skill-tag">NoSQL</span>
-                                <span class="cert-skill-tag">Data Modeling</span>
-                                <span class="cert-skill-tag">Performance</span>
-                            </div>
-                        </div>
-                        <div class="cert-actions">
-                            <a href="#" class="cert-btn cert-btn-primary">View Progress</a>
-                            <a href="#" class="cert-btn cert-btn-secondary">MongoDB U</a>
-                        </div>
-                    </div>
+                    <!-- Certifications will be loaded dynamically -->
                 </div>
             </div>
         </section>
@@ -831,7 +382,7 @@
                                 <div class="contact-icon">📱</div>
                                 <div class="contact-details">
                                     <h4>Phone</h4>
-                                    <a href="tel:+94716336788">+94 (071) 633-6788</a>
+                                    <a href="tel:+1234567890">+1 (234) 567-8900</a>
                                 </div>
                             </div>
 
@@ -839,7 +390,7 @@
                                 <div class="contact-icon">📍</div>
                                 <div class="contact-details">
                                     <h4>Location</h4>
-                                    <span>Galle, Sri Lanka</span>
+                                    <span>San Francisco, CA</span>
                                 </div>
                             </div>
 
@@ -847,8 +398,8 @@
                                 <div class="contact-icon">💼</div>
                                 <div class="contact-details">
                                     <h4>LinkedIn</h4>
-                                    <a href="https://linkedin.com/in/nadun-udaraka"
-                                        target="_blank">linkedin.com/in/nadun-udaraka</a>
+                                    <a href="https://linkedin.com/in/johndoe"
+                                        target="_blank">linkedin.com/in/johndoe</a>
                                 </div>
                             </div>
                         </div>
@@ -856,19 +407,19 @@
                         <div class="social-links">
                             <h4>Follow Me</h4>
                             <div class="social-icons">
-                                <a href="https://github.com/nadun96" class="social-link" target="_blank">
+                                <a href="https://github.com/johndoe" class="social-link" target="_blank">
                                     <span class="social-icon">🐙</span>
                                     GitHub
                                 </a>
-                                <a href="https://twitter.com/nadun-udaraka" class="social-link" target="_blank">
+                                <a href="https://twitter.com/johndoe" class="social-link" target="_blank">
                                     <span class="social-icon">🐦</span>
                                     Twitter
                                 </a>
-                                <a href="https://linkedin.com/in/nadun-udaraka" class="social-link" target="_blank">
+                                <a href="https://linkedin.com/in/johndoe" class="social-link" target="_blank">
                                     <span class="social-icon">💼</span>
                                     LinkedIn
                                 </a>
-                                <a href="https://dribbble.com/nadun-udaraka" class="social-link" target="_blank">
+                                <a href="https://dribbble.com/johndoe" class="social-link" target="_blank">
                                     <span class="social-icon">🏀</span>
                                     Dribbble
                                 </a>
@@ -916,12 +467,12 @@
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-text">
-                        <p>&copy; 2025 Nadun Udaraka. Crafted with passion and vintage aesthetics.</p>
+                        <p>&copy; 2024 Nadun Udaraka. Crafted with passion and vintage aesthetics.</p>
                     </div>
                     <div class="footer-links">
-                        <a href="mailto:nadunudaraka@gmail.com" class="footer-link">Email</a>
-                        <a href="https://linkedin.com/in/nadun-udaraka" target="new" class="footer-link">LinkedIn</a>
-                        <a href="https://github.com/nadun96" target="new" class="footer-link">GitHub</a>
+                        <a href="mailto:john@example.com" class="footer-link">Email</a>
+                        <a href="https://linkedin.com/in/johndoe" class="footer-link">LinkedIn</a>
+                        <a href="https://github.com/johndoe" class="footer-link">GitHub</a>
                     </div>
                 </div>
             </div>
