@@ -573,3 +573,10 @@ document.querySelectorAll(".skill-card").forEach((card) => {
     }
   });
 });
+
+// Reset all border-radius styles to zero skip images
+document.querySelectorAll("*").forEach((el) => {
+  if (el.tagName.toLowerCase() !== "img") {
+    el.style.borderRadius = "0";
+  }
+});

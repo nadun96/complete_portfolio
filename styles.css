@@ -138,6 +138,21 @@ body {
   background: linear-gradient(45deg, #000000 50%, #ffffff 50%);
 }
 
+.theme-block {
+  /* background: linear-gradient(45deg, #f8f7f7 50%, #ffffff 50%); */
+  background: radial-gradient(circle at 50% 50%, #f8f7f7 0%, #ffffff 100%);
+}
+
+/* Default: block borders */
+body:not(.rounded-borders) *:not(img) {
+  border-radius: 0 !important;
+}
+
+/* Rounded borders theme */
+body.rounded-borders *:not(img) {
+  border-radius: 12px; /* Adjust as needed */
+}
+
 /* Section Search Bars */
 .section-search {
   margin-bottom: 2rem;
