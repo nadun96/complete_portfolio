@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>John Doe - Developer Portfolio</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+
+
+    </head>
+
+    <body data-theme="vintage">
+        <!-- Theme Switcher -->
+        <div class="theme-switcher">
+            <h4>Themes</h4>
+            <button class="theme-btn theme-vintage active" data-theme="vintage" title="Vintage Theme"></button>
+            <button class="theme-btn theme-blue" data-theme="blue" title="Blue Theme"></button>
+            <button class="theme-btn theme-bw" data-theme="bw" title="Black & White Theme"></button>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2>John Doe</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#education" class="nav-link">Education</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Home Section -->
+        <section id="home" class="home-section">
+            <div class="container">
+                <div class="home-content">
+                    <div class="home-text">
+                        <h1 class="home-title">Hello, I'm <span class="highlight">John Doe</span></h1>
+                        <h2 class="home-subtitle">Full Stack Developer</h2>
+                        <p class="home-description">
+                            Crafting digital experiences with passion and precision.
+                            I specialize in creating elegant solutions to complex problems
+                            using modern web technologies.
+                        </p>
+                        <div class="home-buttons">
+                            <a href="#projects" class="btn btn-primary">View My Work</a>
+                            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                        </div>
+                    </div>
+                    <div class="home-image">
+                        <div class="profile-frame">
+                            <img src="/placeholder.svg?height=400&width=400" alt="John Doe" class="profile-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <div class="about-intro">
+                            <h3 class="about-subtitle">Passionate Developer & Problem Solver</h3>
+                            <p class="about-description">
+                                With over 6 years of experience in web development, I've had the privilege of working
+                                with diverse teams and clients to bring digital visions to life. My journey began with
+                                a curiosity about how websites work, and it has evolved into a deep passion for creating
+                                meaningful digital experiences.
+                            </p>
+                        </div>
+
+                        <div class="about-details">
+                            <div class="about-item">
+                                <h4 class="about-item-title">My Philosophy</h4>
+                                <p>I believe in writing clean, maintainable code that not only works but tells a story.
+                                    Every line of code should serve a purpose, and every user interaction should feel
+                                    natural
+                                    and intuitive.</p>
+                            </div>
+
+                            <div class="about-item">
+                                <h4 class="about-item-title">What Drives Me</h4>
+                                <p>The intersection of technology and human experience fascinates me. I'm constantly
+                                    learning new technologies and methodologies to stay at the forefront of web
+                                    development,
+                                    always with the user's needs in mind.</p>
+                            </div>
+
+                            <div class="about-item">
+                                <h4 class="about-item-title">Beyond Code</h4>
+                                <p>When I'm not coding, you'll find me exploring new coffee shops, reading about
+                                    emerging
+                                    technologies, or contributing to open-source projects. I believe in giving back to
+                                    the
+                                    community that has taught me so much.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-stats">
+                        <div class="stat-card" data-aos="fade-up">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="stat-number">6+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="stat-number">25+</div>
+                            <div class="stat-label">Happy Clients</div>
+                        </div>
+                        <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Dedication</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-values">
+                    <h3 class="values-title">Core Values</h3>
+                    <div class="values-grid">
+                        <div class="value-item" data-aos="fade-up">
+                            <div class="value-icon">🎯</div>
+                            <h4 class="value-title">Precision</h4>
+                            <p class="value-description">Attention to detail in every aspect of development, from
+                                pixel-perfect designs to optimized performance.</p>
+                        </div>
+                        <div class="value-item" data-aos="fade-up" data-aos-delay="100">
+                            <div class="value-icon">🚀</div>
+                            <h4 class="value-title">Innovation</h4>
+                            <p class="value-description">Embracing new technologies and methodologies to deliver
+                                cutting-edge solutions.</p>
+                        </div>
+                        <div class="value-item" data-aos="fade-up" data-aos-delay="200">
+                            <div class="value-icon">🤝</div>
+                            <h4 class="value-title">Collaboration</h4>
+                            <p class="value-description">Working closely with teams and clients to ensure every project
+                                exceeds expectations.</p>
+                        </div>
+                        <div class="value-item" data-aos="fade-up" data-aos-delay="300">
+                            <div class="value-icon">📚</div>
+                            <h4 class="value-title">Growth</h4>
+                            <p class="value-description">Continuous learning and improvement to stay ahead in the
+                                ever-evolving tech landscape.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+
+                <!-- Projects Search -->
+                <div class="section-search">
+                    <div class="search-wrapper">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" class="search-input" id="projectsSearch" placeholder="Search projects...">
+                        <button class="search-clear" id="projectsClear">&times;</button>
+                    </div>
+                </div>
+                <div class="search-results-info" id="projectsResults"></div>
+
+                <div class="projects-grid" id="projectsGrid">
+                    <div class="project-card" data-aos="fade-up"
+                        data-search-terms="ecommerce react nodejs mongodb stripe frontend backend database payment">
+                        <div class="project-image">
+                            <img src="/placeholder.svg?height=250&width=400" alt="E-commerce Platform">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link">Live Demo</a>
+                                    <a href="#" class="project-link">GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">E-commerce Platform</h3>
+                            <p class="project-description">
+                                A full-featured e-commerce platform with user authentication,
+                                payment processing, and admin dashboard.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">Stripe</span>
+                            </div>
+                            <div class="project-skills">
+                                <span class="skill-tag">Frontend</span>
+                                <span class="skill-tag">Backend</span>
+                                <span class="skill-tag">Database</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="100"
+                        data-search-terms="task management vue express socketio postgresql frontend realtime collaboration">
+                        <div class="project-image">
+                            <img src="/placeholder.svg?height=250&width=400" alt="Task Management App">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link">Live Demo</a>
+                                    <a href="#" class="project-link">GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Task Management App</h3>
+                            <p class="project-description">
+                                A collaborative task management application with real-time updates,
+                                drag-and-drop functionality, and team collaboration features.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">Express</span>
+                                <span class="tech-tag">Socket.io</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                            </div>
+                            <div class="project-skills">
+                                <span class="skill-tag">Frontend</span>
+                                <span class="skill-tag">Real-time</span>
+                                <span class="skill-tag">UI/UX</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="200"
+                        data-search-terms="weather dashboard javascript chartjs api responsive data visualization">
+                        <div class="project-image">
+                            <img src="/placeholder.svg?height=250&width=400" alt="Weather Dashboard">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link">Live Demo</a>
+                                    <a href="#" class="project-link">GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Weather Dashboard</h3>
+                            <p class="project-description">
+                                A responsive weather dashboard with location-based forecasts,
+                                interactive maps, and historical weather data visualization.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Chart.js</span>
+                                <span class="tech-tag">API Integration</span>
+                                <span class="tech-tag">CSS3</span>
+                            </div>
+                            <div class="project-skills">
+                                <span class="skill-tag">Data Viz</span>
+                                <span class="skill-tag">APIs</span>
+                                <span class="skill-tag">Responsive</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <h2 class="section-title">Technical Skills</h2>
+
+                <!-- Skills Search -->
+                <div class="section-search">
+                    <div class="search-wrapper">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" class="search-input" id="skillsSearch" placeholder="Search skills...">
+                        <button class="search-clear" id="skillsClear">&times;</button>
+                    </div>
+                </div>
+                <div class="search-results-info" id="skillsResults"></div>
+
+                <div class="skills-scroll-container">
+                    <div class="skills-track" id="skillsTrack">
+                        <!-- Frontend Skills -->
+                        <div class="skill-card" data-aos="fade-up"
+                            data-search-terms="html5 frontend markup semantic web standards">
+                            <div class="skill-icon">🎨</div>
+                            <h3 class="skill-title">HTML5</h3>
+                            <p class="skill-description">Semantic markup and modern web standards</p>
+                            <div class="skill-level">Expert</div>
+                        </div>
+
+                        <div class="skill-card" data-aos="fade-up"
+                            data-search-terms="css3 styling animations responsive design frontend">
+                            <div class="skill-icon">💅</div>
+                            <h3 class="skill-title">CSS3</h3>
+                            <p class="skill-description">Advanced styling, animations, and responsive design</p>
+                            <div class="skill-level">Expert</div>
+                        </div>
+
+                        <div class="skill-card" data-aos="fade-up"
+                            data-search-terms="javascript es6 dom manipulation frontend programming">
+                            <div class="skill-icon">⚡</div>
+                            <h3 class="skill-title">JavaScript</h3>
+                            <p class="skill-description">ES6+, DOM manipulation, and modern JS features</p>
+                            <div class="skill-level">Advanced</div>
+                        </div>
+
+                        <div class="skill-card" data-aos="fade-up"
+                            data-search-terms="react component hooks frontend ui library">
+                            <div class="skill-icon">⚛️</div>
+                            <h3 class="skill-title">React</h3>
+                            <p class="skill-description">Component-based UI development and hooks</p>
+                            <div class="skill-level">Advanced</div>
+                        </div>
+
+                        <div class="skill-card" data-aos="fade-up"
+                            data-search-terms="vue vuejs progressive framework frontend ui">
+                            <div class="skill-icon">🖖</div>
+                            <h3 class="skill-title">Vue.js</h3>
+                            <p class="skill-description">Progressive framework for building UIs</p>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+
+                        <!-- Backend Skills -->
+                        <div class="skill-card" data-aos="fade-up"
+                            data-search-terms="nodejs backend javascript server runtime">
+                            <div class="skill-icon">🟢</div>
+                            <h3 class="skill-title">Node.js</h3>
+                            <p class="skill-description">Server-side JavaScript runtime environment</p>
+                            <div class="skill-level">Advanced</div>
+                        </div>
+
+                        <div class="skill-card" data-aos="fade-up"
+                            data-search-terms="python backend programming data processing">
+                            <div class="skill-icon">🐍</div>
+                            <h3 class="skill-title">Python</h3>
+                            <p class="skill-description">Backend development and data processing</p>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+
+                        <div class="skill-card" data-aos="fade-up"
+                            data-search-terms="express expressjs backend framework nodejs web">
+                            <div class="skill-icon">🚀</div>
+                            <h3 class="skill-title">Express.js</h3>
+                            <p class="skill-description">Fast, minimalist web framework for Node.js</p>
+                            <div class="skill-level">Advanced</div>
+                        </div>
+
+                        <!-- Database Skills -->
+                        <div class="skill-card" data-aos="fade-up"
+                            data-search-terms="mongodb nosql database document modern">
+                            <div class="skill-icon">🍃</div>
+                            <h3 class="skill-title">MongoDB</h3>
+                            <p class="skill-description">NoSQL database for modern applications</p>
+                            <div class="skill-level">Advanced</div>
+                        </div>
+
+                        <div class="skill-card" data-aos="fade-up"
+                            data-search-terms="postgresql sql database relational advanced">
+                            <div class="skill-icon">🐘</div>
+                            <h3 class="skill-title">PostgreSQL</h3>
+                            <p class="skill-description">Advanced relational database system</p>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+
+                        <!-- Tools & Technologies -->
+                        <div class="skill-card" data-aos="fade-up"
+                            data-search-terms="git version control collaborative development tools">
+                            <div class="skill-icon">🌿</div>
+                            <h3 class="skill-title">Git</h3>
+                            <p class="skill-description">Version control and collaborative development</p>
+                            <div class="skill-level">Expert</div>
+                        </div>
+
+                        <div class="skill-card" data-aos="fade-up"
+                            data-search-terms="docker containerization deployment devops tools">
+                            <div class="skill-icon">🐳</div>
+                            <h3 class="skill-title">Docker</h3>
+                            <p class="skill-description">Containerization and deployment</p>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+
+                        <div class="skill-card" data-aos="fade-up"
+                            data-search-terms="aws cloud computing infrastructure amazon web services">
+                            <div class="skill-icon">☁️</div>
+                            <h3 class="skill-title">AWS</h3>
+                            <p class="skill-description">Cloud computing and infrastructure</p>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+
+                        <div class="skill-card" data-aos="fade-up"
+                            data-search-terms="rest api restful web services backend">
+                            <div class="skill-icon">🔧</div>
+                            <h3 class="skill-title">REST APIs</h3>
+                            <p class="skill-description">RESTful web services and API design</p>
+                            <div class="skill-level">Advanced</div>
+                        </div>
+
+                        <div class="skill-card" data-aos="fade-up"
+                            data-search-terms="responsive design mobile first cross device frontend">
+                            <div class="skill-icon">📱</div>
+                            <h3 class="skill-title">Responsive Design</h3>
+                            <p class="skill-description">Mobile-first and cross-device compatibility</p>
+                            <div class="skill-level">Expert</div>
+                        </div>
+
+                        <div class="skill-card" data-aos="fade-up"
+                            data-search-terms="typescript typed javascript development programming">
+                            <div class="skill-icon">🎯</div>
+                            <h3 class="skill-title">TypeScript</h3>
+                            <p class="skill-description">Typed JavaScript for better development</p>
+                            <div class="skill-level">Advanced</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="education-section">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="timeline">
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Master of Computer Science</h3>
+                            <h4 class="timeline-subtitle">Stanford University</h4>
+                            <span class="timeline-date">2018 - 2020</span>
+                            <p class="timeline-description">
+                                Specialized in Software Engineering and Machine Learning.
+                                Graduated with honors, GPA: 3.8/4.0
+                            </p>
+                            <div class="timeline-achievements">
+                                <span class="achievement-tag">Dean's List</span>
+                                <span class="achievement-tag">Research Assistant</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Bachelor of Computer Engineering</h3>
+                            <h4 class="timeline-subtitle">University of California, Berkeley</h4>
+                            <span class="timeline-date">2014 - 2018</span>
+                            <p class="timeline-description">
+                                Comprehensive study in computer systems, algorithms, and software development.
+                                Active member of the Computer Science Society.
+                            </p>
+                            <div class="timeline-achievements">
+                                <span class="achievement-tag">Magna Cum Laude</span>
+                                <span class="achievement-tag">CS Society President</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Full Stack Web Development</h3>
+                            <h4 class="timeline-subtitle">freeCodeCamp Certification</h4>
+                            <span class="timeline-date">2017</span>
+                            <p class="timeline-description">
+                                Comprehensive certification covering HTML, CSS, JavaScript, React,
+                                Node.js, and database management.
+                            </p>
+                            <div class="timeline-achievements">
+                                <span class="achievement-tag">300+ Hours</span>
+                                <span class="achievement-tag">5 Projects</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience-section">
+            <div class="container">
+                <h2 class="section-title">Professional Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Senior Full Stack Developer</h3>
+                            <h4 class="timeline-subtitle">TechCorp Solutions</h4>
+                            <span class="timeline-date">2021 - Present</span>
+                            <p class="timeline-description">
+                                Lead development of enterprise web applications serving 100K+ users.
+                                Mentor junior developers and architect scalable solutions.
+                            </p>
+                            <div class="timeline-achievements">
+                                <span class="achievement-tag">Team Lead</span>
+                                <span class="achievement-tag">Architecture</span>
+                                <span class="achievement-tag">Mentoring</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Full Stack Developer</h3>
+                            <h4 class="timeline-subtitle">StartupXYZ</h4>
+                            <span class="timeline-date">2020 - 2021</span>
+                            <p class="timeline-description">
+                                Developed and maintained multiple client projects using React, Node.js,
+                                and cloud technologies. Improved application performance by 40%.
+                            </p>
+                            <div class="timeline-achievements">
+                                <span class="achievement-tag">Performance Optimization</span>
+                                <span class="achievement-tag">Cloud Deployment</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Frontend Developer</h3>
+                            <h4 class="timeline-subtitle">WebDev Agency</h4>
+                            <span class="timeline-date">2018 - 2020</span>
+                            <p class="timeline-description">
+                                Created responsive web applications and collaborated with design teams
+                                to implement pixel-perfect user interfaces.
+                            </p>
+                            <div class="timeline-achievements">
+                                <span class="achievement-tag">Responsive Design</span>
+                                <span class="achievement-tag">UI/UX Implementation</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Junior Web Developer</h3>
+                            <h4 class="timeline-subtitle">Digital Solutions Inc.</h4>
+                            <span class="timeline-date">2017 - 2018</span>
+                            <p class="timeline-description">
+                                Started my professional journey building websites and learning
+                                industry best practices. Contributed to 15+ successful projects.
+                            </p>
+                            <div class="timeline-achievements">
+                                <span class="achievement-tag">15+ Projects</span>
+                                <span class="achievement-tag">Quick Learner</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-intro">
+                    <p>I'm always interested in new opportunities and exciting projects.
+                        Whether you have a question, want to collaborate, or just want to say hello,
+                        I'd love to hear from you.</p>
+                </div>
+
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3 class="contact-subtitle">Let's Connect</h3>
+                        <div class="contact-methods">
+                            <div class="contact-method" data-aos="fade-right">
+                                <div class="contact-icon">📧</div>
+                                <div class="contact-details">
+                                    <h4>Email</h4>
+                                    <a href="mailto:john@example.com">john@example.com</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-method" data-aos="fade-right" data-aos-delay="100">
+                                <div class="contact-icon">📱</div>
+                                <div class="contact-details">
+                                    <h4>Phone</h4>
+                                    <a href="tel:+1234567890">+1 (234) 567-8900</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-method" data-aos="fade-right" data-aos-delay="200">
+                                <div class="contact-icon">📍</div>
+                                <div class="contact-details">
+                                    <h4>Location</h4>
+                                    <span>San Francisco, CA</span>
+                                </div>
+                            </div>
+
+                            <div class="contact-method" data-aos="fade-right" data-aos-delay="300">
+                                <div class="contact-icon">💼</div>
+                                <div class="contact-details">
+                                    <h4>LinkedIn</h4>
+                                    <a href="https://linkedin.com/in/johndoe"
+                                        target="_blank">linkedin.com/in/johndoe</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="social-links">
+                            <h4>Follow Me</h4>
+                            <div class="social-icons">
+                                <a href="https://github.com/johndoe" class="social-link" target="_blank">
+                                    <span class="social-icon">🐙</span>
+                                    GitHub
+                                </a>
+                                <a href="https://twitter.com/johndoe" class="social-link" target="_blank">
+                                    <span class="social-icon">🐦</span>
+                                    Twitter
+                                </a>
+                                <a href="https://linkedin.com/in/johndoe" class="social-link" target="_blank">
+                                    <span class="social-icon">💼</span>
+                                    LinkedIn
+                                </a>
+                                <a href="https://dribbble.com/johndoe" class="social-link" target="_blank">
+                                    <span class="social-icon">🏀</span>
+                                    Dribbble
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-container">
+                        <form class="contact-form" data-aos="fade-left">
+                            <h3 class="form-title">Send Me a Message</h3>
+
+                            <div class="form-group">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" id="name" name="name" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" id="subject" name="subject" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea id="message" name="message" class="form-textarea" rows="6"
+                                    required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary form-submit">
+                                Send Message
+                                <span class="btn-loading" style="display: none;">Sending...</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-text">
+                        <p>&copy; 2024 John Doe. Crafted with passion and vintage aesthetics.</p>
+                    </div>
+                    <div class="footer-links">
+                        <a href="mailto:john@example.com" class="footer-link">Email</a>
+                        <a href="https://linkedin.com/in/johndoe" class="footer-link">LinkedIn</a>
+                        <a href="https://github.com/johndoe" class="footer-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="script.js">
+        </script>
+    </body>
+
+</html>

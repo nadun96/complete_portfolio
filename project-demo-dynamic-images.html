@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Demo - TaskFlow</title>
+    <style>
+        :root {
+            /* Default Theme (Original) */
+            --bg-primary: #f8f9fa;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f8f9fa;
+            --text-primary: #333333;
+            --text-secondary: #6c757d;
+            --text-muted: #adb5bd;
+            --accent-primary: #3498db;
+            --accent-secondary: #2980b9;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+            --info: #9b59b6;
+            --border-light: #e9ecef;
+            --border-medium: #dee2e6;
+            --shadow: rgba(0,0,0,0.1);
+            --shadow-hover: rgba(0,0,0,0.15);
+        }
+
+        /* Vintage Theme */
+        [data-theme="vintage"] {
+            --bg-primary: #f4f1e8;
+            --bg-secondary: #faf8f3;
+            --bg-tertiary: #ede7d3;
+            --text-primary: #3c2e26;
+            --text-secondary: #8b7355;
+            --text-muted: #a68b5b;
+            --accent-primary: #8b4513;
+            --accent-secondary: #654321;
+            --success: #6b8e23;
+            --warning: #cd853f;
+            --danger: #a0522d;
+            --info: #708090;
+            --border-light: #d2b48c;
+            --border-medium: #bc9a6a;
+            --shadow: rgba(60, 46, 38, 0.15);
+            --shadow-hover: rgba(60, 46, 38, 0.25);
+        }
+
+        /* Black and White Theme */
+        [data-theme="blackwhite"] {
+            --bg-primary: #f8f8f8;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f0f0f0;
+            --text-primary: #000000;
+            --text-secondary: #666666;
+            --text-muted: #999999;
+            --accent-primary: #333333;
+            --accent-secondary: #000000;
+            --success: #555555;
+            --warning: #777777;
+            --danger: #222222;
+            --info: #444444;
+            --border-light: #e0e0e0;
+            --border-medium: #cccccc;
+            --shadow: rgba(0,0,0,0.2);
+            --shadow-hover: rgba(0,0,0,0.3);
+        }
+
+        /* Bluish Theme */
+        [data-theme="bluish"] {
+            --bg-primary: #f0f4f8;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #e6f3ff;
+            --text-primary: #1a365d;
+            --text-secondary: #4a5568;
+            --text-muted: #718096;
+            --accent-primary: #2b6cb0;
+            --accent-secondary: #1e4a72;
+            --success: #38a169;
+            --warning: #d69e2e;
+            --danger: #e53e3e;
+            --info: #553c9a;
+            --border-light: #bee3f8;
+            --border-medium: #90cdf4;
+            --shadow: rgba(43, 108, 176, 0.1);
+            --shadow-hover: rgba(43, 108, 176, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            transition: all 0.3s ease;
+        }
+
+        /* Theme Switcher */
+        .theme-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--bg-secondary);
+            border-radius: 25px;
+            padding: 10px;
+            box-shadow: 0 4px 12px var(--shadow);
+            border: 1px solid var(--border-light);
+        }
+
+        .theme-buttons {
+            display: flex;
+            gap: 5px;
+        }
+
+        .theme-btn {
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .theme-btn.active {
+            transform: scale(1.2);
+            box-shadow: 0 0 0 3px var(--accent-primary);
+        }
+
+        .theme-btn.default {
+            background: linear-gradient(45deg, #3498db, #f8f9fa);
+        }
+
+        .theme-btn.vintage {
+            background: linear-gradient(45deg, #8b4513, #f4f1e8);
+        }
+
+        .theme-btn.blackwhite {
+            background: linear-gradient(45deg, #000000, #ffffff);
+        }
+
+        .theme-btn.bluish {
+            background: linear-gradient(45deg, #2b6cb0, #e6f3ff);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: var(--bg-secondary);
+            box-shadow: 0 0 20px var(--shadow);
+            border-radius: 10px;
+            margin-top: 80px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* Header */
+        .project-header {
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 2px solid var(--border-light);
+            margin-bottom: 2rem;
+        }
+
+        .project-title {
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .project-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-primary);
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        /* Images Section */
+        .images-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .add-image-btn {
+            background: var(--success);
+            color: var(--bg-secondary);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .add-image-btn:hover {
+            background: var(--accent-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .images-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .image-container {
+            position: relative;
+            animation: slideIn 0.5s ease;
+        }
+
+        .image-placeholder {
+            background: var(--bg-tertiary);
+            border: 2px dashed var(--text-muted);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .image-placeholder:hover {
+            border-color: var(--accent-primary);
+            background: var(--bg-secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow-hover);
+        }
+
+        .image-placeholder input[type="file"] {
+            display: none;
+        }
+
+        .uploaded-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .image-caption {
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            background: var(--bg-tertiary);
+            border-radius: 5px;
+            border: 1px solid var(--border-light);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .image-caption:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            background: var(--bg-secondary);
+        }
+
+        .remove-image-btn {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--danger);
+            color: var(--bg-secondary);
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .remove-image-btn:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .image-counter {
+            background: var(--accent-primary);
+            color: var(--bg-secondary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Technologies */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: var(--accent-primary);
+            color: var(--bg-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px var(--shadow);
+        }
+
+        .tech-tag.frontend { background: var(--danger); }
+        .tech-tag.backend { background: var(--success); }
+        .tech-tag.database { background: var(--warning); }
+        .tech-tag.tools { background: var(--info); }
+
+        /* Description */
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-top: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        /* Features */
+        .features-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .features-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--border-light);
+            position: relative;
+            padding-left: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .features-list li:hover {
+            background: var(--bg-tertiary);
+            padding-left: 2.5rem;
+        }
+
+        /* Documents Section */
+        .documents {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .document-card {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-medium);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .document-card:hover {
+            background: var(--bg-secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow-hover);
+        }
+
+        .document-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .document-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            transition: color 0.3s ease;
+        }
+
+        .document-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        /* File input styling */
+        .file-input-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .file-label {
+            background: var(--accent-primary);
+            color: var(--bg-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .file-label:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-1px);
+        }
+
+        .file-name {
+            margin-left: 1rem;
+            color: var(--success);
+            font-weight: 500;
+        }
+
+        /* Animations */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Theme-specific animations */
+        [data-theme="vintage"] .container {
+            box-shadow: 0 0 30px rgba(60, 46, 38, 0.2);
+        }
+
+        [data-theme="blackwhite"] .container {
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+        }
+
+        [data-theme="bluish"] .container {
+            box-shadow: 0 0 25px rgba(43, 108, 176, 0.15);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .theme-switcher {
+                top: 10px;
+                right: 10px;
+                padding: 8px;
+            }
+
+            .theme-btn {
+                width: 35px;
+                height: 35px;
+            }
+
+            .container {
+                margin: 60px 10px 10px 10px;
+                padding: 15px;
+            }
+
+            .project-title {
+                font-size: 2rem;
+            }
+
+            .tech-stack {
+                justify-content: center;
+            }
+
+            .images-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .images-header {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: stretch;
+            }
+
+            .add-image-btn {
+                justify-content: center;
+            }
+        }
+
+        /* Theme transition effects */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Theme indicator tooltip */
+        .theme-btn::after {
+            content: attr(data-theme);
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--text-primary);
+            color: var(--bg-secondary);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .theme-btn:hover::after {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body data-theme="default">
+    <!-- Theme Switcher -->
+    <div class="theme-switcher">
+        <div class="theme-buttons">
+            <button class="theme-btn default active" data-theme="default" title="Default Theme" onclick="setTheme('default')"></button>
+            <button class="theme-btn vintage" data-theme="vintage" title="Vintage Theme" onclick="setTheme('vintage')"></button>
+            <button class="theme-btn blackwhite" data-theme="blackwhite" title="Black & White Theme" onclick="setTheme('blackwhite')"></button>
+            <button class="theme-btn bluish" data-theme="bluish" title="Bluish Theme" onclick="setTheme('bluish')"></button>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Project Header -->
+        <div class="project-header">
+            <h1 class="project-title">TaskFlow</h1>
+            <p class="project-subtitle">Modern Project Management System</p>
+        </div>
+
+        <!-- Project Images -->
+        <div class="section">
+            <div class="images-header">
+                <h2 class="section-title">Project Screenshots</h2>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <span class="image-counter" id="imageCounter">0 Images</span>
+                    <button class="add-image-btn" onclick="addImageSlot()">
+                        <span>➕</span>
+                        <span>Add Screenshot</span>
+                    </button>
+                </div>
+            </div>
+            <div class="images-grid" id="imagesGrid">
+                <!-- Dynamic images will be added here -->
+            </div>
+        </div>
+
+        <!-- Technologies -->
+        <div class="section">
+            <h2 class="section-title">Technologies Used</h2>
+            <div class="tech-stack">
+                <span class="tech-tag frontend">React</span>
+                <span class="tech-tag frontend">TypeScript</span>
+                <span class="tech-tag frontend">Tailwind CSS</span>
+                <span class="tech-tag backend">Node.js</span>
+                <span class="tech-tag backend">Express</span>
+                <span class="tech-tag database">PostgreSQL</span>
+                <span class="tech-tag database">Redis</span>
+                <span class="tech-tag tools">Docker</span>
+                <span class="tech-tag tools">AWS</span>
+            </div>
+        </div>
+
+        <!-- Description -->
+        <div class="section">
+            <h2 class="section-title">Project Description</h2>
+            <div class="description">
+                TaskFlow is a comprehensive project management system designed to streamline team collaboration and enhance productivity. 
+                Built with modern web technologies, it provides an intuitive interface for managing tasks, tracking progress, and 
+                facilitating communication among team members. The application features real-time updates, customizable workflows, 
+                and robust reporting capabilities to meet the diverse needs of modern development teams.
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="section">
+            <h2 class="section-title">Key Features</h2>
+            <ul class="features-list">
+                <li>Real-time task management and collaboration</li>
+                <li>Customizable project workflows and templates</li>
+                <li>Advanced reporting and analytics dashboard</li>
+                <li>Team communication and file sharing</li>
+                <li>Mobile-responsive design for all devices</li>
+                <li>Integration with popular development tools</li>
+                <li>Role-based access control and permissions</li>
+                <li>Automated notifications and reminders</li>
+                <li>Time tracking and resource management</li>
+                <li>Export capabilities for reports and data</li>
+            </ul>
+        </div>
+
+        <!-- Documents -->
+        <div class="section">
+            <h2 class="section-title">Project Documents</h2>
+            <div class="documents">
+                <div class="document-card" onclick="document.getElementById('techDoc').click()">
+                    <div class="document-icon">📋</div>
+                    <div class="document-title">Technical Documentation</div>
+                    <div class="document-description">API documentation, architecture diagrams, and technical specifications</div>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="techDoc" class="file-input" accept=".pdf,.doc,.docx" onchange="handleDocumentUpload(this, 'technical')">
+                        <label for="techDoc" class="file-label">Upload Document</label>
+                        <span id="techDocName" class="file-name"></span>
+                    </div>
+                </div>
+
+                <div class="document-card" onclick="document.getElementById('designDoc').click()">
+                    <div class="document-icon">🎨</div>
+                    <div class="document-title">Design Documentation</div>
+                    <div class="document-description">UI/UX designs, wireframes, and design system guidelines</div>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="designDoc" class="file-input" accept=".pdf,.fig,.sketch,.xd" onchange="handleDocumentUpload(this, 'design')">
+                        <label for="designDoc" class="file-label">Upload Document</label>
+                        <span id="designDocName" class="file-name"></span>
+                    </div>
+                </div>
+
+                <div class="document-card" onclick="document.getElementById('userDoc').click()">
+                    <div class="document-icon">📖</div>
+                    <div class="document-title">User Manual</div>
+                    <div class="document-description">End-user guide and tutorial documentation</div>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="userDoc" class="file-input" accept=".pdf,.doc,.docx" onchange="handleDocumentUpload(this, 'user')">
+                        <label for="userDoc" class="file-label">Upload Document</label>
+                        <span id="userDocName" class="file-name"></span>
+                    </div>
+                </div>
+
+                <div class="document-card" onclick="document.getElementById('projectDoc').click()">
+                    <div class="document-icon">📊</div>
+                    <div class="document-title">Project Plan</div>
+                    <div class="document-description">Project timeline, milestones, and resource allocation</div>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="projectDoc" class="file-input" accept=".pdf,.doc,.docx,.xlsx" onchange="handleDocumentUpload(this, 'project')">
+                        <label for="projectDoc" class="file-label">Upload Document</label>
+                        <span id="projectDocName" class="file-name"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let imageCounter = 0;
+
+        // Theme management
+        function setTheme(theme) {
+            document.body.setAttribute('data-theme', theme);
+            localStorage.setItem('selectedTheme', theme);
+            
+            // Update active button
+            document.querySelectorAll('.theme-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-theme="${theme}"]`).classList.add('active');
+            
+            // Add theme change animation
+            document.body.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                document.body.style.transform = 'scale(1)';
+            }, 150);
+        }
+
+        // Load saved theme on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('selectedTheme') || 'default';
+            setTheme(savedTheme);
+            updateImageCounter();
+        });
+
+        // Add new image slot
+        function addImageSlot() {
+            imageCounter++;
+            const imagesGrid = document.getElementById('imagesGrid');
+            
+            const imageContainer = document.createElement('div');
+            imageContainer.className = 'image-container';
+            imageContainer.id = `image-container-${imageCounter}`;
+            
+            imageContainer.innerHTML = `
+                <button class="remove-image-btn" onclick="removeImageSlot(${imageCounter})" title="Remove Image">
+                    ×
+                </button>
+                <div class="image-placeholder" onclick="document.getElementById('image-${imageCounter}').click()">
+                    <div>
+                        <div style="font-size: 2rem; margin-bottom: 1rem;">📷</div>
+                        <div>Click to add screenshot</div>
+                        <div style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;">Screenshot ${imageCounter}</div>
+                    </div>
+                    <input type="file" id="image-${imageCounter}" accept="image/*" onchange="handleImageUpload(this, ${imageCounter})">
+                </div>
+                <input type="text" class="image-caption" placeholder="Add caption for this image..." id="caption-${imageCounter}">
+            `;
+            
+            imagesGrid.appendChild(imageContainer);
+            updateImageCounter();
+            
+            // Scroll to the new image
+            imageContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Remove image slot
+        function removeImageSlot(id) {
+            const imageContainer = document.getElementById(`image-container-${id}`);
+            if (imageContainer) {
+                imageContainer.style.animation = 'slideOut 0.3s ease forwards';
+                setTimeout(() => {
+                    imageContainer.remove();
+                    updateImageCounter();
+                }, 300);
+            }
+        }
+
+        // Update image counter
+        function updateImageCounter() {
+            const imageContainers = document.querySelectorAll('.image-container');
+            const count = imageContainers.length;
+            document.getElementById('imageCounter').textContent = `${count} Image${count !== 1 ? 's' : ''}`;
+        }
+
+        // Handle image uploads
+        function handleImageUpload(input, id) {
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const placeholder = input.parentElement;
+                    placeholder.innerHTML = `<img src="${e.target.result}" alt="Project Screenshot ${id}" class="uploaded-image">`;
+                    placeholder.style.padding = '0';
+                    placeholder.style.border = 'none';
+                    
+                    // Add upload animation
+                    placeholder.style.transform = 'scale(0.9)';
+                    setTimeout(() => {
+                        placeholder.style.transform = 'scale(1)';
+                    }, 200);
+                    
+                    // Update placeholder click behavior
+                    placeholder.onclick = function() {
+                        input.click();
+                    };
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Handle document uploads
+        function handleDocumentUpload(input, type) {
+            const file = input.files[0];
+            if (file) {
+                const nameSpan = document.getElementById(type + 'DocName');
+                nameSpan.textContent = file.name;
+                
+                // Update the card to show uploaded status
+                const card = input.closest('.document-card');
+                card.style.background = 'var(--success)';
+                card.style.color = 'var(--bg-secondary)';
+                card.style.transform = 'scale(1.02)';
+                
+                // Reset after animation
+                setTimeout(() => {
+                    card.style.background = 'var(--bg-tertiary)';
+                    card.style.color = 'var(--text-primary)';
+                    card.style.transform = 'scale(1)';
+                }, 1000);
+                
+                // Show success message
+                setTimeout(() => {
+                    alert(`${file.name} uploaded successfully!`);
+                }, 100);
+            }
+        }
+
+        // Prevent default click behavior on file input wrappers
+        document.querySelectorAll('.file-input-wrapper').forEach(wrapper => {
+            wrapper.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+
+        // Add click handlers for document cards that don't interfere with file inputs
+        document.querySelectorAll('.document-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (!e.target.closest('.file-input-wrapper')) {
+                    const fileInput = this.querySelector('.file-input');
+                    if (fileInput) {
+                        fileInput.click();
+                    }
+                }
+            });
+        });
+
+        // Add keyboard shortcuts for theme switching
+        document.addEventListener('keydown', function(e) {
+            if (e.altKey) {
+                switch(e.key) {
+                    case '1':
+                        setTheme('default');
+                        break;
+                    case '2':
+                        setTheme('vintage');
+                        break;
+                    case '3':
+                        setTheme('blackwhite');
+                        break;
+                    case '4':
+                        setTheme('bluish');
+                        break;
+                    case 'a':
+                    case 'A':
+                        addImageSlot();
+                        break;
+                }
+            }
+        });
+
+        // Add smooth transitions when switching themes
+        document.body.style.transition = 'all 0.3s ease';
+
+        // Auto-save captions to localStorage
+        document.addEventListener('input', function(e) {
+            if (e.target.classList.contains('image-caption')) {
+                const captions = {};
+                document.querySelectorAll('.image-caption').forEach(caption => {
+                    if (caption.value) {
+                        captions[caption.id] = caption.value;
+                    }
+                });
+                localStorage.setItem('imageCaptions', JSON.stringify(captions));
+            }
+        });
+
+        // Load saved captions
+        function loadSavedCaptions() {
+            const savedCaptions = localStorage.getItem('imageCaptions');
+            if (savedCaptions) {
+                const captions = JSON.parse(savedCaptions);
+                Object.keys(captions).forEach(id => {
+                    const captionInput = document.getElementById(id);
+                    if (captionInput) {
+                        captionInput.value = captions[id];
+                    }
+                });
+            }
+        }
+
+        // Initialize with one image slot
+        addImageSlot();
+    </script>
+</body>
+</html>
