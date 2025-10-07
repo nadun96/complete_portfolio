@@ -53,7 +53,73 @@ class DataManager {
         { id: 13, title: "AWS", description: "Cloud computing and infrastructure", icon: "☁️", level: "Intermediate", searchTerms: "aws cloud computing infrastructure amazon web services" },
         { id: 14, title: "REST APIs", description: "RESTful web services and API design", icon: "🔧", level: "Advanced", searchTerms: "rest api restful web services backend" },
         { id: 15, title: "Responsive Design", description: "Mobile-first and cross-device compatibility", icon: "📱", level: "Expert", searchTerms: "responsive design mobile first cross device frontend" },
-        { id: 16, title: "TypeScript", description: "Typed JavaScript for better development", icon: "🎯", level: "Advanced", searchTerms: "typescript typed javascript development programming" }
+                { id: 16, title: "TypeScript", description: "Typed JavaScript for better development", icon: "🎯", level: "Advanced", searchTerms: "typescript typed javascript development programming" }
+      ],
+      education: [
+        {
+          id: 1,
+          degree: "Master of Computer Science",
+          institution: "Stanford University",
+          period: "2018 - 2020",
+          description: "Specialized in Software Engineering and Machine Learning. Graduated with honors, GPA: 3.8/4.0",
+          achievements: ["Dean's List", "Research Assistant"],
+          searchTerms: "master computer science stanford university software engineering machine learning research",
+          animationDirection: "fade-right"
+        },
+        {
+          id: 2,
+          degree: "Bachelor of Computer Engineering",
+          institution: "University of California, Berkeley",
+          period: "2014 - 2018",
+          description: "Comprehensive study in computer systems, algorithms, and software development. Active member of the Computer Science Society.",
+          achievements: ["Magna Cum Laude", "CS Society President"],
+          searchTerms: "bachelor computer engineering berkeley university california algorithms software development",
+          animationDirection: "fade-left"
+        },
+        {
+          id: 3,
+          degree: "Full Stack Web Development",
+          institution: "freeCodeCamp Certification",
+          period: "2017",
+          description: "Comprehensive certification covering HTML, CSS, JavaScript, React, Node.js, and database management.",
+          achievements: ["300+ Hours", "5 Projects"],
+          searchTerms: "full stack web development freecodecamp html css javascript react nodejs database",
+          animationDirection: "fade-right"
+        }
+      ],
+      certifications: [
+      ],
+      education: [
+        {
+          id: 1,
+          degree: "Master of Computer Science",
+          institution: "Stanford University",
+          period: "2018 - 2020",
+          description: "Specialized in Software Engineering and Machine Learning. Graduated with honors, GPA: 3.8/4.0",
+          achievements: ["Dean's List", "Research Assistant"],
+          searchTerms: "master computer science stanford university software engineering machine learning research",
+          animationDirection: "fade-right"
+        },
+        {
+          id: 2,
+          degree: "Bachelor of Computer Engineering",
+          institution: "University of California, Berkeley",
+          period: "2014 - 2018",
+          description: "Comprehensive study in computer systems, algorithms, and software development. Active member of the Computer Science Society.",
+          achievements: ["Magna Cum Laude", "CS Society President"],
+          searchTerms: "bachelor computer engineering berkeley university california algorithms software development",
+          animationDirection: "fade-left"
+        },
+        {
+          id: 3,
+          degree: "Full Stack Web Development",
+          institution: "freeCodeCamp Certification",
+          period: "2017",
+          description: "Comprehensive certification covering HTML, CSS, JavaScript, React, Node.js, and database management.",
+          achievements: ["300+ Hours", "5 Projects"],
+          searchTerms: "full stack web development freecodecamp html css javascript react nodejs database",
+          animationDirection: "fade-right"
+        }
       ],
       certifications: [
         {
@@ -134,6 +200,128 @@ class DataManager {
           certificateUrl: "#",
           verifyUrl: "#"
         }
+      ],
+      experience: [
+        {
+          id: 1,
+          position: "Python Engineer (Web Scraping)",
+          company: "Innodata Lanka",
+          type: "Freelance",
+          period: "Jul 2025 - Present",
+          duration: "4 mos",
+          location: "Galle, Southern Province, Sri Lanka · Remote",
+          description: "Developing efficient web scrapers to extract data from research journals, enhancing data accessibility. Implemented cookie handling and request emulation using basic Python libraries, ensuring robust scraping without reliance on Selenium. Improved data update frequency, leading to a more timely and relevant dataset for research purposes.",
+          achievements: ["Web Scraping", "Python", "Data Extraction", "Research"],
+          skills: ["Python", "Web Scraping", "Data Processing", "Research"],
+          searchTerms: "python engineer web scraping innodata lanka freelance data extraction research journals cookie handling",
+          animationDirection: "fade-right",
+          current: true
+        },
+        {
+          id: 2,
+          position: "Back End Developer",
+          company: "EMUQ TECH inc",
+          type: "Full-time",
+          period: "Apr 2024 - Present",
+          duration: "1 yr 7 mos",
+          location: "Florida, United States · Remote",
+          description: "Developed robust Python back-end solutions using FastAPI, enhancing application performance and scalability. Implemented data pipelines for transforming and uploading CSV data into data warehouses, optimizing data accessibility. Automated workflows with n8n and AWS Lambda, reducing manual processes and increasing operational efficiency.",
+          achievements: ["FastAPI", "Data Pipelines", "AWS Lambda", "Performance"],
+          skills: ["Python", "FastAPI", "REST APIs", "AWS", "Data Warehouses", "n8n"],
+          searchTerms: "backend developer emuq tech fastapi python data pipelines csv aws lambda n8n automation",
+          animationDirection: "fade-left",
+          current: true
+        },
+        {
+          id: 3,
+          position: "System Administrator",
+          company: "Confidential",
+          type: "Part-time",
+          period: "Apr 2024 - Present",
+          duration: "1 yr 7 mos",
+          location: "Miami, Florida, United States · Remote",
+          description: "Performance Tuning, Maintenance and security of critical server infrastructure, achieving significant operational improvements. Monitored and updated servers, resulting in a 30% reduction in system response times. Implemented robust security measures that protected sensitive data and minimized vulnerabilities. Developed skills in Linux administration and database management, enhancing technical expertise in a fast-paced startup environment.",
+          achievements: ["30% Performance Improvement", "Security Implementation", "Linux Admin"],
+          skills: ["System Administration", "Linux", "Database Management", "Security", "Performance Tuning"],
+          searchTerms: "system administrator performance tuning maintenance security server infrastructure linux database",
+          animationDirection: "fade-right",
+          current: true
+        },
+        {
+          id: 4,
+          position: "Intern Analyst Programmer",
+          company: "Myndi",
+          type: "Internship",
+          period: "Aug 2022 - Mar 2023",
+          duration: "8 mos",
+          location: "Sri Lanka",
+          description: "Experienced Analyst Programmer and Odoo Developer with expertise in Python programming and ERP systems. Successfully completed an internship as an Odoo Developer, gaining valuable experience in custom module development and system integration. Skilled in design, development, testing, deployment, and maintenance of Odoo solutions. Passionate about problem-solving and providing efficient solutions for clients.",
+          achievements: ["Odoo Development", "ERP Systems", "Custom Modules"],
+          skills: ["Python", "Odoo", "ERP Systems", "Database Management", "Project Management"],
+          searchTerms: "intern analyst programmer myndi odoo developer python erp systems custom modules integration",
+          animationDirection: "fade-left",
+          current: false
+        },
+        {
+          id: 5,
+          position: "Physics Tutor",
+          company: "Self Employed",
+          type: "Self-employed",
+          period: "Sep 2019 - Jan 2020",
+          duration: "5 mos",
+          location: "Galle, Southern Province, Sri Lanka · On-site",
+          description: "Advanced Level Physics Tutor providing comprehensive physics education to students preparing for advanced level examinations.",
+          achievements: ["Advanced Level Teaching", "Physics Expertise"],
+          skills: ["Teaching", "Physics", "Education", "Communication"],
+          searchTerms: "physics tutor self employed advanced level teaching education galle sri lanka",
+          animationDirection: "fade-right",
+          current: false
+        },
+        {
+          id: 6,
+          position: "Associate Image Processor",
+          company: "OREL IT",
+          type: "Full-time",
+          period: "Aug 2019 - Jan 2020",
+          duration: "6 mos",
+          location: "Galle, Southern, Sri Lanka",
+          description: "Worked as an Associate Image Processor responsible for processing and enhancing digital images using various image processing tools and techniques.",
+          achievements: ["Image Processing", "Quality Control"],
+          skills: ["Image Processing", "Quality Assurance", "Digital Tools"],
+          searchTerms: "associate image processor orel it image processing digital enhancement quality galle",
+          animationDirection: "fade-left",
+          current: false
+        },
+        {
+          id: 7,
+          position: "Junior Security Officer",
+          company: "PLOD Security Services",
+          type: "Full-time",
+          period: "Jan 2019 - Jun 2019",
+          duration: "6 mos",
+          location: "Nugegoda, Western Province, Sri Lanka · On-site",
+          description: "Worked as a Junior Security Officer at University of Sri Jayawardenepura Faculty of Medicine, ensuring campus security and safety protocols.",
+          achievements: ["Campus Security", "Safety Protocols"],
+          skills: ["Security Management", "Safety Protocols", "Communication"],
+          searchTerms: "junior security officer plod security services university jayawardenepura medicine faculty campus",
+          animationDirection: "fade-right",
+          current: false
+        },
+        {
+          id: 8,
+          position: "Management Trainee",
+          company: "South Beach Resort",
+          type: "Contract",
+          period: "Sep 2018 - Jan 2019",
+          duration: "5 mos",
+          location: "Kathaluwa, Ahangama",
+          description: "Participated in management training program gaining experience in business process re-engineering, critical thinking, and English communication skills.",
+          achievements: ["Management Training", "Business Process Re-engineering"],
+          skills: ["Business Process Re-engineering", "Critical Thinking", "English", "Management"],
+          searchTerms: "management trainee south beach resort business process reengineering critical thinking english kathaluwa",
+          animationDirection: "fade-left",
+          current: false
+        }
       ]
     };
     
@@ -151,6 +339,8 @@ class DataManager {
     this.loadProjects();
     this.loadSkills();
     this.loadCertifications();
+    this.loadEducation();
+    this.loadExperience();
   }
 
   loadProjects() {
@@ -240,6 +430,8 @@ class DataManager {
   setupSearch() {
     this.setupProjectsSearch();
     this.setupSkillsSearch();
+    this.setupEducationSearch();
+    this.setupExperienceSearch();
   }
 
   setupProjectsSearch() {
@@ -281,6 +473,129 @@ class DataManager {
       search.value = '';
       clear.classList.remove('visible');
       this.searchSkills('');
+    });
+  }
+
+  loadEducation(searchTerm = '') {
+    const timeline = document.getElementById('educationTimeline');
+    if (!timeline) return;
+
+    const filteredEducation = searchTerm
+      ? this.data.education.filter(edu => 
+          edu.searchTerms.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          edu.degree.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          edu.institution.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      : this.data.education;
+
+    timeline.innerHTML = filteredEducation.map(edu => `
+      <div class="timeline-item" data-aos="${edu.animationDirection}">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <h3 class="timeline-title">${edu.degree}</h3>
+          <h4 class="timeline-subtitle">${edu.institution}</h4>
+          <span class="timeline-date">${edu.period}</span>
+          <p class="timeline-description">${edu.description}</p>
+          <div class="timeline-achievements">
+            ${edu.achievements.map(achievement => 
+              `<span class="achievement-tag">${achievement}</span>`
+            ).join('')}
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    // Update results info
+    const resultsContainer = document.getElementById('educationResults');
+    if (resultsContainer) {
+      resultsContainer.textContent = `Showing ${filteredEducation.length} of ${this.data.education.length} education entries`;
+    }
+  }
+
+  setupEducationSearch() {
+    const search = document.getElementById('educationSearch');
+    const clear = document.getElementById('educationClear');
+    
+    if (!search) return;
+
+    search.addEventListener('input', e => {
+      const query = e.target.value.trim();
+      clear?.classList.toggle('visible', !!query);
+      
+      clearTimeout(this.searchTimeouts.education);
+      this.searchTimeouts.education = setTimeout(() => this.loadEducation(query), 300);
+    });
+
+    clear?.addEventListener('click', () => {
+      search.value = '';
+      clear.classList.remove('visible');
+      this.loadEducation('');
+    });
+  }
+
+  loadExperience(searchTerm = '') {
+    const timeline = document.getElementById('experienceTimeline');
+    if (!timeline) return;
+
+    const filteredExperience = searchTerm
+      ? this.data.experience.filter(exp => 
+          exp.searchTerms.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          exp.position.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          exp.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          exp.description.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      : this.data.experience;
+
+    timeline.innerHTML = filteredExperience.map(exp => `
+      <div class="timeline-item" data-aos="${exp.animationDirection}">
+        <div class="timeline-marker ${exp.current ? 'current' : ''}"></div>
+        <div class="timeline-content">
+          <h3 class="timeline-title">${exp.position}</h3>
+          <h4 class="timeline-subtitle">${exp.company} · ${exp.type}</h4>
+          <span class="timeline-date">${exp.period} · ${exp.duration}</span>
+          ${exp.location ? `<div class="timeline-location">${exp.location}</div>` : ''}
+          <p class="timeline-description">${exp.description}</p>
+          <div class="timeline-achievements">
+            ${exp.achievements.map(achievement => 
+              `<span class="achievement-tag">${achievement}</span>`
+            ).join('')}
+          </div>
+          ${exp.skills && exp.skills.length > 0 ? `
+            <div class="timeline-skills">
+              ${exp.skills.map(skill => 
+                `<span class="skill-tag">${skill}</span>`
+              ).join('')}
+            </div>
+          ` : ''}
+        </div>
+      </div>
+    `).join('');
+
+    // Update results info
+    const resultsContainer = document.getElementById('experienceResults');
+    if (resultsContainer) {
+      resultsContainer.textContent = `Showing ${filteredExperience.length} of ${this.data.experience.length} experience entries`;
+    }
+  }
+
+  setupExperienceSearch() {
+    const search = document.getElementById('experienceSearch');
+    const clear = document.getElementById('experienceClear');
+    
+    if (!search) return;
+
+    search.addEventListener('input', e => {
+      const query = e.target.value.trim();
+      clear?.classList.toggle('visible', !!query);
+      
+      clearTimeout(this.searchTimeouts.experience);
+      this.searchTimeouts.experience = setTimeout(() => this.loadExperience(query), 300);
+    });
+
+    clear?.addEventListener('click', () => {
+      search.value = '';
+      clear.classList.remove('visible');
+      this.loadExperience('');
     });
   }
 
@@ -344,6 +659,68 @@ class DataManager {
 
       const isVisible = searchContent.includes(lowerQuery);
       card.classList.toggle('hidden', !isVisible);
+      if (isVisible) visibleCount++;
+    });
+
+    this.updateSearchResults(results, visibleCount, query);
+  }
+
+  searchEducation(query) {
+    const timeline = document.getElementById('educationTimeline');
+    const results = document.getElementById('educationResults');
+    if (!timeline) return;
+
+    const items = timeline.querySelectorAll('.timeline-item');
+    let visibleCount = 0;
+
+    if (!query) {
+      items.forEach(item => item.classList.remove('hidden'));
+      if (results) results.textContent = '';
+      return;
+    }
+
+    const lowerQuery = query.toLowerCase();
+    items.forEach(item => {
+      const searchContent = [
+        item.querySelector('.timeline-title')?.textContent || '',
+        item.querySelector('.timeline-subtitle')?.textContent || '',
+        item.querySelector('.timeline-description')?.textContent || '',
+        ...Array.from(item.querySelectorAll('.achievement-tag')).map(tag => tag.textContent)
+      ].join(' ').toLowerCase();
+
+      const isVisible = searchContent.includes(lowerQuery);
+      item.classList.toggle('hidden', !isVisible);
+      if (isVisible) visibleCount++;
+    });
+
+    this.updateSearchResults(results, visibleCount, query);
+  }
+
+  searchEducation(query) {
+    const timeline = document.getElementById('educationTimeline');
+    const results = document.getElementById('educationResults');
+    if (!timeline) return;
+
+    const items = timeline.querySelectorAll('.timeline-item');
+    let visibleCount = 0;
+
+    if (!query) {
+      items.forEach(item => item.classList.remove('hidden'));
+      if (results) results.textContent = '';
+      return;
+    }
+
+    const lowerQuery = query.toLowerCase();
+    items.forEach(item => {
+      const searchContent = [
+        item.querySelector('.timeline-title')?.textContent || '',
+        item.querySelector('.timeline-subtitle')?.textContent || '',
+        item.querySelector('.timeline-description')?.textContent || '',
+        ...Array.from(item.querySelectorAll('.achievement-tag')).map(tag => tag.textContent)
+      ].join(' ').toLowerCase();
+
+      const isVisible = searchContent.includes(lowerQuery);
+      item.classList.toggle('hidden', !isVisible);
       if (isVisible) visibleCount++;
     });
 

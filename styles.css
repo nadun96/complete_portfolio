@@ -864,6 +864,39 @@ section {
   display: none;
 }
 
+.timeline-item.hidden {
+  display: none;
+}
+
+.timeline-location {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0.25rem 0;
+  font-style: italic;
+}
+
+.timeline-skills {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.timeline-skills .skill-tag {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.timeline-marker.current {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 4px var(--accent-color-alpha);
+}
+
 .skill-card::before {
   content: "";
   position: absolute;
