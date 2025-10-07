@@ -26,13 +26,6 @@
   --transition: all 0.3s ease;
   --border-radius: 8px;
   --max-width: 1200px;
-
-  /* Dark Theme Variables */
-  --background-dark: #000000;
-  --primary-color-dark: #ffffff;
-  --accent-color-dark: #ff00ff;
-  --secondary-color-dark: #00ffff;
-  --text-light-dark: #cccccc;
 }
 
 /* Blue Theme */
@@ -65,15 +58,6 @@
   --shadow-light: rgba(0, 0, 0, 0.1);
   --shadow-medium: rgba(0, 0, 0, 0.2);
   --shadow-dark: rgba(0, 0, 0, 0.3);
-}
-
-/* Dark Theme */
-[data-theme="dark"] {
-  --background-color: var(--background-dark);
-  --primary-color: var(--primary-color-dark);
-  --accent-color: var(--accent-color-dark);
-  --secondary-color: var(--secondary-color-dark);
-  --text-light: var(--text-light-dark);
 }
 
 html {
@@ -309,10 +293,6 @@ body {
 
 [data-theme="bw"] .navbar {
   background: rgba(255, 255, 255, 0.95);
-}
-
-[data-theme="dark"] .navbar {
-  background: rgba(0, 0, 0, 0.95);
 }
 
 .nav-container {
@@ -2153,4 +2133,34 @@ section {
     page-break-inside: avoid;
     margin-bottom: 20px;
   }
+}
+
+/* Debugging Styles */
+.timeline-item.debug {
+  outline: 2px dashed red;
+}
+
+.timeline-content.debug {
+  background: yellow !important;
+  color: black !important;
+}
+
+.timeline-marker.debug {
+  background: red !important;
+}
+
+.timeline-title.debug {
+  font-size: 2rem !important;
+}
+
+.timeline-subtitle.debug {
+  font-size: 1.5rem !important;
+}
+
+.timeline-description.debug {
+  font-size: 1.2rem !important;
+}
+
+.timeline-achievements.debug .achievement-tag {
+  background: orange !important;
 }

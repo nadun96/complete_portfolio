@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Test - Portfolio Contact Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .status {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .status.test {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            color: #856404;
+        }
+        .status.success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        button:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+        .log {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .log-entry {
+            padding: 5px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .instructions {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            border-left: 4px solid #007bff;
+        }
+        .instructions h3 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+        .instructions ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .instructions li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>📧 Email Function Test</h1>
+        <p><strong>Destination:</strong> udarakanadun@gmail.com</p>
+        
+        <div class="status test">
+            ⚠️ Currently in TEST MODE - Emails will be logged to console, not sent
+        </div>
+
+        <div class="instructions">
+            <h3>To Enable Real Email Sending:</h3>
+            <ol>
+                <li>Go to <a href="https://web3forms.com" target="_blank">web3forms.com</a></li>
+                <li>Enter: udarakanadun@gmail.com</li>
+                <li>Copy the Access Key you receive</li>
+                <li>Update <code>js/modules/EmailService.js</code> line 6</li>
+                <li>Change <code>testEmail()</code> to <code>sendEmail()</code> in UIManager.js line 127</li>
+            </ol>
+            <p>See <strong>EMAIL_SETUP_GUIDE.md</strong> for detailed instructions</p>
+        </div>
+
+        <form id="testForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required value="Test User">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required value="test@example.com">
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" required value="Test Email from Portfolio">
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" rows="5" required>This is a test message from the portfolio contact form. All fields are working correctly!</textarea>
+            </div>
+
+            <button type="submit" id="submitBtn">Send Test Email</button>
+        </form>
+
+        <div class="log">
+            <h3>Console Log:</h3>
+            <div id="logOutput">
+                <div class="log-entry">Waiting for form submission...</div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { EmailService } from './js/modules/EmailService.js';
+
+        const emailService = new EmailService();
+        const form = document.getElementById('testForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const logOutput = document.getElementById('logOutput');
+
+        function addLog(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.textContent = `[${timestamp}] ${message}`;
+            if (type === 'success') entry.style.color = 'green';
+            if (type === 'error') entry.style.color = 'red';
+            logOutput.appendChild(entry);
+            logOutput.scrollTop = logOutput.scrollHeight;
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+
+            addLog('Form submitted', 'info');
+            addLog(`From: ${formData.name} <${formData.email}>`, 'info');
+            addLog(`Subject: ${formData.subject}`, 'info');
+            addLog(`Message: ${formData.message}`, 'info');
+
+            try {
+                // Test mode - logs to console
+                const result = await emailService.testEmail(formData);
+                
+                addLog('✅ Email test successful!', 'success');
+                addLog('Check browser console (F12) for details', 'success');
+                addLog('Email would be sent to: udarakanadun@gmail.com', 'success');
+                
+                setTimeout(() => {
+                    alert('Test successful! ✅\n\nCheck the console log above.\n\nTo enable real emails, follow the instructions in EMAIL_SETUP_GUIDE.md');
+                }, 100);
+                
+            } catch (error) {
+                addLog('❌ Error: ' + error.message, 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Test Email';
+            }
+        });
+
+        // Initial log
+        addLog('Email service initialized in TEST MODE');
+        addLog('Ready to test email functionality');
+    </script>
+</body>
+</html>
