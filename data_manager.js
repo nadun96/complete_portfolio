@@ -92,33 +92,51 @@ class DataManager {
       education: [
         {
           id: 1,
-          degree: "Master of Computer Science",
-          institution: "Stanford University",
-          period: "2018 - 2020",
-          description: "Specialized in Software Engineering and Machine Learning. Graduated with honors, GPA: 3.8/4.0",
-          achievements: ["Dean's List", "Research Assistant"],
-          searchTerms: "master computer science stanford university software engineering machine learning research",
+          degree: "Primary and Secondary Education",
+          institution: "Richmond College",
+          period: "Feb 2001 - Aug 2015",
+          startYear: 2001,
+          description: "Completed primary and secondary education with active involvement in extracurricular activities. Developed foundational skills in academics and participated in various sports and strategic games.",
+          achievements: ["Scouting", "Basketball", "Chess", "Badminton"],
+          skills: ["English", "Software Development", "Teamwork", "Critical Thinking", "Project Management"],
+          searchTerms: "richmond college primary secondary education scouting basketball chess badminton teamwork critical thinking software development",
           animationDirection: "fade-right"
         },
         {
           id: 2,
-          degree: "Bachelor of Computer Engineering",
-          institution: "University of California, Berkeley",
-          period: "2014 - 2018",
-          description: "Comprehensive study in computer systems, algorithms, and software development. Active member of the Computer Science Society.",
-          achievements: ["Magna Cum Laude", "CS Society President"],
-          searchTerms: "bachelor computer engineering berkeley university california algorithms software development",
+          degree: "Certificate in Computer Hardware, Computer Hardware Engineering",
+          institution: "Micronet Solutions",
+          period: "Feb 2013 - Jul 2013",
+          startYear: 2013,
+          description: "Specialized certification program focusing on computer hardware fundamentals and engineering principles. Achieved Merit Pass grade demonstrating strong technical competency in hardware systems.",
+          achievements: ["Merit Pass", "Hardware Engineering"],
+          skills: ["Computer Hardware", "Hardware Engineering", "Technical Troubleshooting"],
+          searchTerms: "micronet solutions computer hardware engineering certificate merit pass technical troubleshooting hardware systems",
           animationDirection: "fade-left"
         },
         {
           id: 3,
-          degree: "Full Stack Web Development",
-          institution: "freeCodeCamp Certification",
-          period: "2017",
-          description: "Comprehensive certification covering HTML, CSS, JavaScript, React, Node.js, and database management.",
-          achievements: ["300+ Hours", "5 Projects"],
-          searchTerms: "full stack web development freecodecamp html css javascript react nodejs database",
+          degree: "Diploma in Information Technology",
+          institution: "ESOFT Metro Campus",
+          period: "Oct 2018 - Mar 2019",
+          startYear: 2018,
+          description: "Focused diploma program in information technology covering software development fundamentals, critical thinking, and project management. Gained practical experience in user experience design and software development methodologies.",
+          achievements: ["IT Fundamentals", "Software Development"],
+          skills: ["English", "Software Development", "Critical Thinking", "Project Management", "User Experience (UX)"],
+          searchTerms: "esoft metro campus diploma information technology software development critical thinking project management user experience ux",
           animationDirection: "fade-right"
+        },
+        {
+          id: 4,
+          degree: "Management and Information Technology, Information Technology",
+          institution: "University of Kelaniya Sri Lanka",
+          period: "Mar 2020 - Mar 2025",
+          startYear: 2020,
+          description: "Comprehensive study in management principles and information technology systems. Gained expertise in software development, data modeling, and project management. Active participation in student organizations including Gavel Club, IMSSA, and Generation Alpha.",
+          achievements: ["Grade: 3.4", "Gavel Club Member", "IMSSA Member", "Generation Alpha"],
+          skills: ["English", "Java", "Software Development", "Data Modeling", "Critical Thinking", "Project Management", "Django", "HTML"],
+          searchTerms: "university kelaniya sri lanka management information technology java software development data modeling project management django html gavel club imssa generation alpha",
+          animationDirection: "fade-left"
         }
       ],
       certifications: [
@@ -478,37 +496,74 @@ class DataManager {
 
   loadEducation(searchTerm = '') {
     const timeline = document.getElementById('educationTimeline');
-    if (!timeline) return;
+    if (!timeline) {
+      console.error('Education timeline element not found');
+      return;
+    }
 
-    const filteredEducation = searchTerm
-      ? this.data.education.filter(edu => 
-          edu.searchTerms.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          edu.degree.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          edu.institution.toLowerCase().includes(searchTerm.toLowerCase())
-        )
+    let filteredEducation = searchTerm
+      ? this.data.education.filter(edu => {
+          const searchFields = [
+            edu.searchTerms || '',
+            edu.degree || '',
+            edu.institution || '',
+            edu.description || '',
+            ...(edu.achievements || []),
+            ...(edu.skills || [])
+          ].join(' ').toLowerCase();
+          const matches = searchFields.includes(searchTerm.toLowerCase());
+          console.log(`Filtering: ${searchFields} | Query: ${searchTerm} | Matches: ${matches}`);
+          return matches;
+        })
       : this.data.education;
 
-    timeline.innerHTML = filteredEducation.map(edu => `
-      <div class="timeline-item" data-aos="${edu.animationDirection}">
-        <div class="timeline-marker"></div>
-        <div class="timeline-content">
-          <h3 class="timeline-title">${edu.degree}</h3>
-          <h4 class="timeline-subtitle">${edu.institution}</h4>
+    console.log(`Filtered education entries:`, filteredEducation);
+
+    filteredEducation = filteredEducation.sort((a, b) => b.startYear - a.startYear);
+
+    const educationWithAnimation = filteredEducation.map((edu, index) => ({
+      ...edu,
+      animationDirection: index % 2 === 0 ? 'fade-right' : 'fade-left'
+    }));
+
+    timeline.innerHTML = educationWithAnimation.map(edu => `
+      <div class="timeline-item debug" data-aos="${edu.animationDirection}">
+        <div class="timeline-marker debug"></div>
+        <div class="timeline-content debug">
+          <h3 class="timeline-title debug">${edu.degree}</h3>
+          <h4 class="timeline-subtitle debug">${edu.institution}</h4>
           <span class="timeline-date">${edu.period}</span>
-          <p class="timeline-description">${edu.description}</p>
+          <p class="timeline-description debug">${edu.description}</p>
           <div class="timeline-achievements">
             ${edu.achievements.map(achievement => 
-              `<span class="achievement-tag">${achievement}</span>`
+              `<span class="achievement-tag debug">${achievement}</span>`
             ).join('')}
           </div>
+          ${edu.skills && edu.skills.length > 0 ? `
+            <div class="timeline-skills">
+              ${edu.skills.map(skill => 
+                `<span class="skill-tag debug">${skill}</span>`
+              ).join('')}
+            </div>
+          ` : ''}
         </div>
       </div>
     `).join('');
 
-    // Update results info
     const resultsContainer = document.getElementById('educationResults');
     if (resultsContainer) {
-      resultsContainer.textContent = `Showing ${filteredEducation.length} of ${this.data.education.length} education entries`;
+      if (searchTerm) {
+        resultsContainer.textContent = `Showing ${educationWithAnimation.length} of ${this.data.education.length} education entries`;
+      } else {
+        resultsContainer.textContent = '';
+      }
+    }
+
+    // Initialize AOS animations
+    if (window.AOS) {
+      window.AOS.init();
+    } else {
+      console.warn('AOS library not found');
     }
   }
 
@@ -659,68 +714,6 @@ class DataManager {
 
       const isVisible = searchContent.includes(lowerQuery);
       card.classList.toggle('hidden', !isVisible);
-      if (isVisible) visibleCount++;
-    });
-
-    this.updateSearchResults(results, visibleCount, query);
-  }
-
-  searchEducation(query) {
-    const timeline = document.getElementById('educationTimeline');
-    const results = document.getElementById('educationResults');
-    if (!timeline) return;
-
-    const items = timeline.querySelectorAll('.timeline-item');
-    let visibleCount = 0;
-
-    if (!query) {
-      items.forEach(item => item.classList.remove('hidden'));
-      if (results) results.textContent = '';
-      return;
-    }
-
-    const lowerQuery = query.toLowerCase();
-    items.forEach(item => {
-      const searchContent = [
-        item.querySelector('.timeline-title')?.textContent || '',
-        item.querySelector('.timeline-subtitle')?.textContent || '',
-        item.querySelector('.timeline-description')?.textContent || '',
-        ...Array.from(item.querySelectorAll('.achievement-tag')).map(tag => tag.textContent)
-      ].join(' ').toLowerCase();
-
-      const isVisible = searchContent.includes(lowerQuery);
-      item.classList.toggle('hidden', !isVisible);
-      if (isVisible) visibleCount++;
-    });
-
-    this.updateSearchResults(results, visibleCount, query);
-  }
-
-  searchEducation(query) {
-    const timeline = document.getElementById('educationTimeline');
-    const results = document.getElementById('educationResults');
-    if (!timeline) return;
-
-    const items = timeline.querySelectorAll('.timeline-item');
-    let visibleCount = 0;
-
-    if (!query) {
-      items.forEach(item => item.classList.remove('hidden'));
-      if (results) results.textContent = '';
-      return;
-    }
-
-    const lowerQuery = query.toLowerCase();
-    items.forEach(item => {
-      const searchContent = [
-        item.querySelector('.timeline-title')?.textContent || '',
-        item.querySelector('.timeline-subtitle')?.textContent || '',
-        item.querySelector('.timeline-description')?.textContent || '',
-        ...Array.from(item.querySelectorAll('.achievement-tag')).map(tag => tag.textContent)
-      ].join(' ').toLowerCase();
-
-      const isVisible = searchContent.includes(lowerQuery);
-      item.classList.toggle('hidden', !isVisible);
       if (isVisible) visibleCount++;
     });
 
